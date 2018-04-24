@@ -437,3 +437,86 @@ Processing by QueriesController#show as HTML
 Completed 200 OK in 37ms (Views: 30.5ms | ActiveRecord: 0.6ms)
 
 
+  [1m[35m (23.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5151059281946169060)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateQueries (20180424015413)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (18.5ms)[0m  [1m[35mCREATE TABLE "queries" ("id" bigserial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180424015413_create_queries.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180424015413"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateFavourites (20180424015420)
+  [1m[35m (7.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (17.4ms)[0m  [1m[35mCREATE TABLE "favourites" ("id" bigserial primary key, "name" text, "price" text, "img" text, "platform" text, "query_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_3669e21a53"
+FOREIGN KEY ("query_id")
+  REFERENCES "queries" ("id")
+)[0m
+  ↳ db/migrate/20180424015420_create_favourites.rb:3
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE  INDEX  "index_favourites_on_query_id" ON "favourites"  ("query_id")[0m
+  ↳ db/migrate/20180424015420_create_favourites.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180424015420"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-24 16:38:12.502265"], ["updated_at", "2018-04-24 16:38:12.502265"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5151059281946169060)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2018-04-25 00:38:55 +0800
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by QueriesController#index as HTML
+  Rendering queries/index.html.erb within layouts/application
+  Rendered queries/index.html.erb within layouts/application (36.1ms)
+Completed 200 OK in 5612ms (Views: 5590.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/queries" for 127.0.0.1 at 2018-04-25 00:39:14 +0800
+Processing by QueriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GXD0wq9JskduLHM+b3S2x+B7VG4VMlehIssYccmw3O2wakSAM5UCk/htoYlxGMQr/RyuGzJVYGN38UFUxe7xKg==", "name"=>"harddisk", "commit"=>"Search"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/queries_controller.rb:12
+  [1m[36mQuery Create (2.2ms)[0m  [1m[32mINSERT INTO "queries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "harddisk"], ["created_at", "2018-04-24 16:39:14.405055"], ["updated_at", "2018-04-24 16:39:14.405055"]]
+  ↳ app/controllers/queries_controller.rb:12
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/queries_controller.rb:12
+Redirected to http://localhost:3000/queries/1
+Completed 302 Found in 170ms (ActiveRecord: 17.5ms)
+
+
+Started GET "/queries/1" for 127.0.0.1 at 2018-04-25 00:39:14 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuery Load (0.8ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:18
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 138ms (Views: 93.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-25 00:39:18 +0800
+Processing by QueriesController#index as HTML
+  Rendering queries/index.html.erb within layouts/application
+  Rendered queries/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 110ms (Views: 102.1ms | ActiveRecord: 0.0ms)
+
+
