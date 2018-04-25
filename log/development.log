@@ -744,3 +744,43 @@ Processing by QueriesController#show as HTML
 Completed 200 OK in 418ms (Views: 28.1ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/queries/4" for 127.0.0.1 at 2018-04-25 15:56:34 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mQuery Load (0.6ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 898ms (Views: 434.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/queries/4" for 127.0.0.1 at 2018-04-25 16:03:36 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mQuery Load (0.6ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 529ms (Views: 28.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/queries/4" for 127.0.0.1 at 2018-04-25 16:04:22 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mQuery Load (0.4ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 835ms (Views: 26.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/queries/4" for 127.0.0.1 at 2018-04-25 16:21:52 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mQuery Load (0.7ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 820ms (Views: 397.8ms | ActiveRecord: 0.7ms)
+
+

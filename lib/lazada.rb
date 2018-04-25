@@ -56,6 +56,13 @@ class LazadaScraper
       # Push populated hash into the array
       @products << product_details
     end
+
+    @products.each do |product|
+      if product[:url] == nil
+      elsif product[:url].include? '"}'
+        product[:url] = product[:url].split('"}')[0]
+      end
+    end
   end
 
   def results
