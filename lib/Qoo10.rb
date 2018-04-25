@@ -81,11 +81,3 @@ class Qoo10Scraper
 	end
 end
 
-# ===================================
-# Execution
-# ===================================
-# qoo10 = Qoo10Scraper.new('pencil')
-# qoo10.search
-# puts qoo10.results
-# puts qoo10.totalSellers
-# puts qoo10.bestSellers
