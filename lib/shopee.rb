@@ -56,10 +56,3 @@ class ShopeeScraper
 		total		
 	end
 end
-
-# ===================================
-# Execution
-# ===================================
-shopee = ShopeeScraper.new('pencil')
-puts shopee.results
-# puts shopee.totalSellers
