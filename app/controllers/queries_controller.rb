@@ -22,5 +22,4 @@ class QueriesController < ApplicationController
 	def query_params
 		params.permit(:name)
 	end
-
 end
