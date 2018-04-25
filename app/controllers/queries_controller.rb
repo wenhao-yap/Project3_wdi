@@ -2,6 +2,7 @@ require 'Qoo10'
 require 'ostruct'
 
 class QueriesController < ApplicationController
+
 	#search page
 	def index
 	end
@@ -11,8 +12,8 @@ class QueriesController < ApplicationController
 	end
 
 	def create
-		@query = Query.new(query_params)
-		@query.save
+		params[:name].downcase!
+		@query = Query.find_or_create_by(query_params)
 		redirect_to @query
 	end
 
