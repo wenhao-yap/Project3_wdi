@@ -1,4 +1,5 @@
 require 'Qoo10'
+require 'shopee'
 require 'ostruct'
 
 class QueriesController < ApplicationController
@@ -22,9 +23,10 @@ class QueriesController < ApplicationController
 		@query = Query.find(params[:id])
 		qoo10 = Qoo10Scraper.new(@query.name)
 		qoo10.search
-		@parsedResults =JSON.parse(qoo10.results, object_class: OpenStruct)
+		@parsedQoo10 =JSON.parse(qoo10.results, object_class: OpenStruct)
 
-		# @totalSellers = qoo10.totalSellers
+		shopee = ShopeeScraper.new(@query.name)
+		@parsedShopee =JSON.parse(shopee.results, object_class: OpenStruct)
 	end
 
 	private
