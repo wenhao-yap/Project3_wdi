@@ -437,3 +437,572 @@ Processing by QueriesController#show as HTML
 Completed 200 OK in 37ms (Views: 30.5ms | ActiveRecord: 0.6ms)
 
 
+Started POST "/queries" for 127.0.0.1 at 2018-04-24 11:54:52 +0800
+Processing by QueriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EWvwTIATKua4LtJtCZhpVHXEbJV9Kv61G2yvKtyRIiDSp/D8yULVh7BPbZVWDf7VUgTNLJZe5mRylll5nC8oSQ==", "name"=>"tape", "commit"=>"Search"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/queries_controller.rb:12
+  [1m[36mQuery Create (1.1ms)[0m  [1m[32mINSERT INTO "queries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "tape"], ["created_at", "2018-04-24 03:54:52.482008"], ["updated_at", "2018-04-24 03:54:52.482008"]]
+  ↳ app/controllers/queries_controller.rb:12
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/queries_controller.rb:12
+Redirected to http://localhost:3000/queries/5
+Completed 302 Found in 16ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/queries/5" for 127.0.0.1 at 2018-04-24 11:54:52 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mQuery Load (0.3ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:18
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 31ms (Views: 26.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/queries/5" for 127.0.0.1 at 2018-04-24 20:13:06 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mQuery Load (1.8ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:18
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 125ms (Views: 102.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:20:05 +0800
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/wenhao/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  
+LoadError (cannot load such file -- mechanize):
+  
+lib/Qoo10.rb:1:in `<main>'
+app/controllers/queries_controller.rb:1:in `<main>'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:20:54 +0800
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/wenhao/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (13.8ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 533ms (Views: 444.7ms | ActiveRecord: 47.6ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:23:35 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.8ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3867ms (Views: 25.3ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:25:20 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.8ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 2667ms (Views: 30.6ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:29:41 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.4ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (23.1ms)
+Completed 500 Internal Server Error in 2300ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<String:0x00007fbd93713e98>):
+    23:     <th>title</th>
+    24:   </tr>
+    25: 
+    26:    <% @results.each do |row| %>
+    27:   <tr>
+    28:     <td><%= row.id %></td>
+    29:     <td><%= row.title %></td>
+  
+app/views/queries/show.html.erb:26:in `_app_views_queries_show_html_erb___1239192252796284351_70226099607120'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:31:21 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.5ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (26.2ms)
+Completed 500 Internal Server Error in 2852ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for "[":String):
+    23:     <th>title</th>
+    24:   </tr>
+    25: 
+    26:    <% @results[0].each do |row| %>
+    27:   <tr>
+    28:     <td><%= row.id %></td>
+    29:     <td><%= row.title %></td>
+  
+app/views/queries/show.html.erb:26:in `_app_views_queries_show_html_erb___1239192252796284351_70226131640220'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:32:13 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.5ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 3585ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for "[":String):
+    23:     <th>title</th>
+    24:   </tr>
+    25: 
+    26:    <% @results[0].each do |row| %>
+    27:   <tr>
+    28:     <td><%= row.id %></td>
+    29:     <td><%= row.title %></td>
+  
+app/views/queries/show.html.erb:26:in `_app_views_queries_show_html_erb___1239192252796284351_70226122897460'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:32:27 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (4.5ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 2562ms (Views: 49.5ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:32:37 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.3ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3970ms (Views: 33.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:33:31 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.9ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2185ms (Views: 25.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:34:02 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.4ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 4060ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<String:0x00007fbd967d7ed0>):
+    3:   <strong>Searching for:</strong><%= @query.name %> 
+    4: </p>
+    5: 
+    6: <%= @results.each do |result|
+    7: 	result
+    8: end %>
+    9:  
+  
+app/views/queries/show.html.erb:6:in `_app_views_queries_show_html_erb___1239192252796284351_70226125174380'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:36:06 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.4ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 2435ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<String:0x00007fbd966811a8>):
+    18: 				imageLink:  item.css('.td_thmb> .inner > a > img').attr('gd_src')
+    19: 			}
+    20: 
+    21: <% @results.each do |data| %>
+    22:   <ul>
+    23:     <li>
+    24:       <%= data.name %>
+  
+app/views/queries/show.html.erb:21:in `_app_views_queries_show_html_erb___1239192252796284351_70226124505000'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:39:48 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.3ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 2837ms (Views: 65.6ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:40:16 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.3ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 2721ms (Views: 24.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:41:08 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.4ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (13.3ms)
+Completed 500 Internal Server Error in 2280ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (uninitialized class variable @@parsedResults in ActionView::CompiledTemplates):
+    20:     <th>title</th>
+    21:   </tr>
+    22: 
+    23:    <% @@parsedResults[0].each do |row| %>
+    24:   <tr>
+    25:     <td><%= row.id %></td>
+    26:     <td><%= row.title %></td>
+  
+app/views/queries/show.html.erb:23:in `_app_views_queries_show_html_erb___1239192252796284351_70226123851300'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:41:21 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.3ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 3524ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for #<Hash:0x00007fbd970444d8>):
+    22: 
+    23:    <% @parsedResults.each do |row| %>
+    24:   <tr>
+    25:     <td><%= row.id %></td>
+    26:     <td><%= row.title %></td>
+    27:   </tr>
+    28:   <% end %>
+  
+app/views/queries/show.html.erb:25:in `block in _app_views_queries_show_html_erb___1239192252796284351_70226121082020'
+app/views/queries/show.html.erb:23:in `each'
+app/views/queries/show.html.erb:23:in `_app_views_queries_show_html_erb___1239192252796284351_70226121082020'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:41:36 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.4ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 2978ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for ["id", 1]:Array):
+    22: 
+    23:    <% @parsedResults[0].each do |row| %>
+    24:   <tr>
+    25:     <td><%= row.id %></td>
+    26:     <td><%= row.title %></td>
+    27:   </tr>
+    28:   <% end %>
+  
+app/views/queries/show.html.erb:25:in `block in _app_views_queries_show_html_erb___1239192252796284351_70226132230100'
+app/views/queries/show.html.erb:23:in `each'
+app/views/queries/show.html.erb:23:in `_app_views_queries_show_html_erb___1239192252796284351_70226132230100'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:42:16 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.8ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 2290ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `title' for #<Hash:0x00007fbd96647958>):
+    23:    <% @parsedResults.each do |row| %>
+    24:   <tr>
+    25:     <td><%= row %></td>
+    26: <!--     <td><%= row.title %></td> -->
+    27:   </tr>
+    28:   <% end %>
+    29: 
+  
+app/views/queries/show.html.erb:26:in `block in _app_views_queries_show_html_erb___1239192252796284351_70226158190420'
+app/views/queries/show.html.erb:23:in `each'
+app/views/queries/show.html.erb:23:in `_app_views_queries_show_html_erb___1239192252796284351_70226158190420'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:42:30 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.4ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 2435ms (Views: 78.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:42:56 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.4ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 2683ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `title' for #<Hash:0x00007fbd96540730>):
+    22: 
+    23:    <% @parsedResults.each do |row| %>
+    24:   <tr>
+    25:     <td><%= row.title %></td>
+    26:   </tr>
+    27:   <% end %>
+    28: 
+  
+app/views/queries/show.html.erb:25:in `block in _app_views_queries_show_html_erb___1239192252796284351_70226156029480'
+app/views/queries/show.html.erb:23:in `each'
+app/views/queries/show.html.erb:23:in `_app_views_queries_show_html_erb___1239192252796284351_70226156029480'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:43:45 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (4.8ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2961ms (Views: 33.3ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:44:15 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.9ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 2948ms (Views: 30.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:44:23 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.3ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:20
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 2347ms (Views: 39.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:46:38 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.3ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 2902ms (Views: 34.4ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:47:09 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.5ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2379ms (Views: 23.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 10:47:33 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.3ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2153ms (Views: 22.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:06:40 +0800
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/wenhao/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.7ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+Completed 500 Internal Server Error in 3985ms (ActiveRecord: 24.8ms)
+
+
+  
+NoMethodError (undefined method `map' for nil:NilClass
+Did you mean?  tap):
+  
+app/controllers/queries_controller.rb:25:in `show'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:12:40 +0800
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/wenhao/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  
+LoadError (cannot load such file -- simple-summary):
+  
+app/controllers/queries_controller.rb:3:in `<main>'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:12:51 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.7ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:22
+Completed 500 Internal Server Error in 2553ms (ActiveRecord: 12.9ms)
+
+
+  
+NoMethodError (undefined method `map' for nil:NilClass
+Did you mean?  tap):
+  
+app/controllers/queries_controller.rb:26:in `show'
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:30:10 +0800
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/wenhao/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.9ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 4389ms (Views: 382.1ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:30:47 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (1.3ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 2918ms (Views: 30.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:31:03 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.7ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 1961ms (Views: 54.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:34:47 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.6ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 2875ms (Views: 24.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:35:14 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.6ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 2585ms (Views: 24.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:36:35 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.5ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 3246ms (Views: 23.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:37:08 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.5ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 2848ms (Views: 36.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:38:40 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.6ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 2651ms (Views: 23.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:38:58 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.4ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 2866ms (Views: 36.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:40:02 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.4ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 2339ms (Views: 35.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:45:11 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (1.7ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 2386ms (Views: 28.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/queries/2/" for 127.0.0.1 at 2018-04-25 11:45:28 +0800
+Processing by QueriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mQuery Load (0.5ms)[0m  [1m[34mSELECT  "queries".* FROM "queries" WHERE "queries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/queries_controller.rb:21
+  Rendering queries/show.html.erb within layouts/application
+  Rendered queries/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 2655ms (Views: 24.4ms | ActiveRecord: 0.5ms)
+
+
