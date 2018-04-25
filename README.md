@@ -10,7 +10,7 @@ The instructions below will get you a copy of the project up and running on your
 
 Make sure to download/install the following items:
 * Text Editor - Up to your own preference, I personally prefer atom (https://atom.io/)
-* Ubuntu Terminal(For Windows User) - Search for ubuntu in Microsoft stored
+* Ubuntu Terminal(For Windows User) - Search for ubuntu in Microsoft store
 * Ruby - https://gorails.com/setup/windows/10
 * Rails - https://gorails.com/setup/windows/10
 * PostgreSQL - https://www.postgresql.org/download/
@@ -52,7 +52,32 @@ rails db:migrate
 rails s
 ```
 
-**Step 7** => Open your browser and type this command
+**Step 7** => Open your browser and enter this url into the address bar
 ```
 localhost:3000
 ```
+
+## Wireframes
+
+The following below shows the wireframes I came up with during the planning process.
+![alt text]()
+
+
+## ERD Diagrams
+
+The following shows the relationships between the various database tables for this project.
+![alt text](https://i.imgur.com/fjMiDrg.jpg)
+
+## User Stories
+Click this link to view the user stories for this project - https://trello.com/b/wqxejIl0/web-crawler
+
+## Built With
+**Frameworks**
+* [Ruby On Rails](http://rubyonrails.org/) - A server-side web application framework written in Ruby
+* [MDBootstrap](https://mdbootstrap.com/) - The front-end framework used that aligns with Google Material Design
+
+**GEM Packages**
+* [Mechanize](https://rubygems.org/gems/mechanize/versions/2.7.5) - Used to handle the crawling of data from Lazada
+
+**Database**
+* [PostgreSQL](https://www.postgresql.org/) - Open Source Database
