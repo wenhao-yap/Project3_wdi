@@ -33,7 +33,7 @@ class LazadaScraper
   end
 
   # ===================================
-  # Extract out the necessary fields required to be stored
+  # Extract out the necessary fields required to be stored into the database
   # ===================================
   def extract
     # Create summarized product details object for all the products crawled & add it to the array
@@ -65,6 +65,9 @@ class LazadaScraper
     end
   end
 
+  # ===================================
+  # Display the results to the web page
+  # ===================================
   def results
     JSON.pretty_generate(@products)
     # puts "Product details => #{JSON.pretty_generate(@products)}"
