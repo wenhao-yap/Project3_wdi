@@ -1,0 +1,54 @@
+<br><div class="container navbar d-flex justify-content-around align-self-center">
+	<div class="row vertical-text-center">
+		<div class="col-lg-1">
+			<a href="/" class="navbutton">
+				<%= image_tag 'logo.png', height: '50', width: '50' %>
+				<!-- <img src="images/logo.png" alt="Logo" width="80" height="40"> -->
+			</a>
+		</div>
+		<div class="col-lg-1">
+			<a href="/about" class="navbutton">
+				<h3>About</h3>
+			</a>
+		</div>
+		<div class="col-lg-6">
+			<%= form_with scope: :query, url: queries_path do |form| %>
+			<h4 id="nav-search">
+				<%= label_tag(:name, "Product:") %>
+				<%= text_field_tag(:name) %>
+				<%= submit_tag("Search") %>
+			</h4>
+			<% end %>
+		</div>
+
+		<!-- temporary conditional, not optimised according to naming conventions
+			currently just rendering not logged in content
+		-->
+		<% if @a==true %>
+			<div class="col-lg-2">
+				<a href="/users/profile">
+					<h4>Profile</h4>
+				</a>
+			</div>
+			<div class="col-lg-2">
+				<a href="/users/logout">
+					<h4>logout</h4>
+				</a>
+			</div>
+
+		<% else %>
+			<div class="col-lg-2">
+				<a href="/log-in">
+					<h4>Log In</h4>
+				</a>
+			</div>
+			<div class="col-lg-2">
+				<a href="/sign-up">
+					<h4>Sign Up</h4>
+				</a>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+<br><br>
