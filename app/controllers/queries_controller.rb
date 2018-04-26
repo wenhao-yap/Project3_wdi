@@ -5,6 +5,8 @@ require 'lazada'
 
 class QueriesController < ApplicationController
 
+	before_action :authenticate_user!, :except => [ :show, :index, :create ]
+
 	#search page
 	def index
 	end
