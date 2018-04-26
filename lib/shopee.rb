@@ -24,20 +24,24 @@ class ShopeeScraper
 		loop do
 			browser.execute_script("window.scrollBy(0," + x.to_s + ")")
 			x = x + 100
-			sleep 1
+			sleep 0.5
 			puts x
-			break if x > 1000
+			break if x >= 200
 		end
 
 		data = Nokogiri::HTML.parse(browser.html)			
 		items = data.css('div.shopee-search-item-result__item')
-		output = items.each_with_index.map { |item, i| 
+		output = items[0..9].each_with_index.map { |item, i| 
 			origPrice = item.css('.shopee-item-card__original-price').text
 			origPrice = "Not discounted" if origPrice.empty?
 			home = 'https://shopee.sg/'
 			imageLink = browser.divs(:class => 'lazy-image__image')[i].style('background-image')
 			max = imageLink.length - 3
-			imageLink = imageLink[5..max] if imageLink != "none"
+			if imageLink != "none"
+				imageLink = imageLink[5..max]
+			else
+				imageLink = ""
+			end
 
 			{
 				id: i+1,

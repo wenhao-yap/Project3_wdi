@@ -45,7 +45,7 @@ class Qoo10Scraper
 
 	def results
 		items = @searchData.css('tbody > tr')
-		output = items.each_with_index.map { |item, i| 
+		output = items[0..9].each_with_index.map { |item, i| 
 			shipping = item.css('.ship').text
 			shipping.include?('$') ?
 				(shipping = "$" + shipping.gsub(/[^\d\.]/, '')) : 
@@ -60,9 +60,6 @@ class Qoo10Scraper
 				title: item.css('.sbj').text,
 				currPrice: item.css('.prc > strong').text,
 				origPrice: origPrice,
-				shipping: shipping,
-				rating: rating,
-				seller: item.css('.lnk_sh').attr('title'),
 				link: item.css('.lnk_vw').attr('href'),
 				imageLink:  item.css('.td_thmb> .inner > a > img').attr('gd_src')
 			}
