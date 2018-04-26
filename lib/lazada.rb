@@ -11,7 +11,7 @@ class LazadaScraper
     @input = query_input
     @url = 'https://www.lazada.sg/catalog/?q='
     @products = []
-    @keys = [:id, :name, :price, :availability, :image, :url]
+    @keys = [:id, :name, :price, :availability, :img, :url]
     @search_data = nil
   end
 
@@ -46,7 +46,7 @@ class LazadaScraper
       product_details[:name] = product.split(',')[6].split(':')[1].split('"')[1]
       product_details[:price] = product.split(',')[0].split(':')[1].split('"')[1] + " " + product.split(',')[2].split(':')[1].split('"')[1]
       product_details[:availability] = product.split(',')[3].split('":"')[1].split('"}')[0].split('/')[3]
-      product_details[:image] = product.split(',')[4].split('":"')[1].split('"')[0]
+      product_details[:img] = product.split(',')[4].split('":"')[1].split('"')[0]
       if product_details[:id] != 39
         product_details[:url] = product.split(',')[7].split('":"')[1]
       else
