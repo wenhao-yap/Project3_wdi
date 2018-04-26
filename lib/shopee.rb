@@ -18,7 +18,7 @@ class ShopeeScraper
 
 	def results
 		browser = Watir::Browser.new(:chrome,headless:true)
-		browser.goto('https://shopee.sg/search/?keyword=' + @input +'&page=0&sortBy=sales')
+		browser.goto('https://shopee.sg/search/?keyword=' + @input)
 
 		x = 0
 		loop do
