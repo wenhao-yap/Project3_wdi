@@ -17,9 +17,19 @@ class ShopeeScraper
 	# ===================================
 
 	def results
-		browser = Watir::Browser.new(:chrome, headless:true)
+		browser = Watir::Browser.new(:chrome,headless:true)
 		browser.goto('https://shopee.sg/search/?keyword=' + @input +'&page=0&sortBy=sales')
-		data = Nokogiri::HTML.parse(browser.html)				
+
+		x = 0
+		loop do
+			browser.execute_script("window.scrollBy(0," + x.to_s + ")")
+			x = x + 100
+			sleep 1
+			puts x
+			break if x > 1000
+		end
+
+		data = Nokogiri::HTML.parse(browser.html)			
 		items = data.css('div.shopee-search-item-result__item')
 		output = items.each_with_index.map { |item, i| 
 			origPrice = item.css('.shopee-item-card__original-price').text
@@ -27,7 +37,7 @@ class ShopeeScraper
 			home = 'https://shopee.sg/'
 			imageLink = browser.divs(:class => 'lazy-image__image')[i].style('background-image')
 			max = imageLink.length - 3
-			imageLink = imageLink[5..max] if imageLink != 'none'
+			imageLink = imageLink[5..max] if imageLink != "none"
 
 			{
 				id: i+1,
