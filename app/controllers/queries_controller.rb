@@ -1,6 +1,7 @@
 require 'Qoo10'
 require 'shopee'
 require 'ostruct'
+require 'lazada'
 
 class QueriesController < ApplicationController
 
@@ -27,6 +28,10 @@ class QueriesController < ApplicationController
 
 		shopee = ShopeeScraper.new(@query.name)
 		@parsedShopee =JSON.parse(shopee.results, object_class: OpenStruct)
+
+		lazada = LazadaScraper.new(@query.name)
+		lazada.scrap
+		@parsedLazada = JSON.parse(lazada.cheapest_products, object_class: OpenStruct)
 	end
 
 	private

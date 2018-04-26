@@ -38,3 +38,24 @@
   <% end %>
 
 </table>
+
+<h2>Lazada</h2>
+<table>
+  <tr>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Price</th>
+    <th>Url</th>
+  </tr>
+
+  <% @parsedLazada.each do |item| %>
+    <tr>
+      <td><%= item["id"] %></td>
+      <td><%= item["name"] %></td>
+      <td><img src= <%= item["image"] %>></td>
+      <td><%= item["price"] %></td>
+      <td> <a href="<%= item["url"] %>">Click here to buy</a> </td>
+    </tr>
+  <% end %>
+</table>
