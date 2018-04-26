@@ -1,4 +1,4 @@
 class Query < ApplicationRecord
 	has_many :favourite
-	belong_to :user
+	belongs_to :user
 end
