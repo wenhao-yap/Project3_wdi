@@ -35,14 +35,14 @@ class ShopeeScraper
 			home = 'https://shopee.sg/'
 			img = browser.divs(:class => 'lazy-image__image')[i].style('background-image')
 			max = img.length - 3
-			img = imageLink[5..max] if imageLink != "none"
+			img = img[5..max] if img != "none"
 
 			{
 				id: i+1,
 				name: item.css('.shopee-item-card__text-name').text,
 				price: item.css('.shopee-item-card__current-price').text,
 				url: home + item.css('a.shopee-item-card--link').attr('href'),
-				img: imageLink
+				img: img
 			}
 		}
 		browser.close
