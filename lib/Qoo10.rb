@@ -20,7 +20,7 @@ class Qoo10Scraper
 	def bestSellers
 		data = Nokogiri::HTML(homePage.body)
 		items = data.css('#div_bestseller').css('li[group_code="0"]')
-		output = items.each_with_index.map { |item, i| 
+		output = items.each_with_index.map { |item, i|
 			{
 				id: i+1,
 				img: item.css('img').attr('gd_src'),
@@ -38,30 +38,20 @@ class Qoo10Scraper
 	# submit search on home page to prevent blacklist
 	def search
 		searchForm = homePage.form(:action => "https://www.qoo10.sg/gmkt.inc/Search/Default.aspx")
-		searchForm.field_with(:name => "keyword").value = @input 
+		searchForm.field_with(:name => "keyword").value = @input
 		searchPage = @agent.submit(searchForm)
 		@searchData = Nokogiri::HTML(searchPage.body)
 	end
 
 	def results
 		items = @searchData.css('tbody > tr')
-		output = items[0..9].each_with_index.map { |item, i| 
-			shipping = item.css('.ship').text
-			shipping.include?('$') ?
-				(shipping = "$" + shipping.gsub(/[^\d\.]/, '')) : 
-				(shipping.include?('Free') ? (shipping = "Free") : (shipping = "N.A."))
-			origPrice = item.css('.dc_prc > del').text
-			origPrice = "Not discounted" if origPrice.empty?
-			rating = item.css('.rate_v').text
-			rating = rating.gsub(/[aA-zZ:\s()]/,''); 
-
+		output = items[0..9].each_with_index.map { |item, i|
 			{
 				id: i+1,
-				title: item.css('.sbj').text,
-				currPrice: item.css('.prc > strong').text,
-				origPrice: origPrice,
-				link: item.css('.lnk_vw').attr('href'),
-				imageLink:  item.css('.td_thmb> .inner > a > img').attr('gd_src')
+				name: item.css('.sbj').text,
+				price: item.css('.prc > strong').text,
+				url: item.css('.lnk_vw').attr('href'),
+				img:  item.css('.td_thmb> .inner > a > img').attr('gd_src')
 			}
 		}
 		JSON.pretty_generate(output)
@@ -77,4 +67,3 @@ class Qoo10Scraper
 		page = @agent.get('https://www.qoo10.sg/')
 	end
 end
-

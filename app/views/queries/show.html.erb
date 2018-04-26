@@ -1,7 +1,7 @@
 <%= link_to 'Back', queries_path %>
 
 <p>
-  <strong>Searching for:</strong><%= @query.name %> 
+  <strong>Searching for: </strong><%= @query.name %>
 </p>
 
 <h1>Qoo10</h2>
@@ -10,53 +10,41 @@
     <th>No.</th>
     <th>title</th>
     <th>price</th>
+    <th>Url</th>
+    <th>Favourites</th>
   </tr>
 
    <% @parsedQoo10.each do |item| %>
   <tr>
   	<td><%= item.id %></td>
-    <td><img src= <%= item.imageLink %>><span style="width:200px; height:100px; overflow:auto; display:inline-block;"><%= item.title %></span></td>
-    <td><%= item.currPrice %></td>
+    <td><img src= <%= item.img %>><span style="width:300px; height:100px; overflow:auto; display:inline-block;"><%= item.name %></span></td>
+    <td><%= item.price %></td>
+    <td> <a href="<%= item["url"] %>">Click here to buy</a> </td>
+    <td><%= link_to 'Add to Favourites', favourites_path(item), method: :post %></td>
   </tr>
   <% end %>
 
 </table>
 
-<h2>Shopee</h2>
-<table>
-  <tr>
-    <th>No.</th>
-    <th>title</th>
-    <th>price</th>
-  </tr>
-
-   <% @parsedShopee.each do |item| %>
-  <tr>
-    <td><%= item.id %></td>
-    <td><img src= <%= item.imageLink %>><span style="width:200px; overflow:auto; display:inline-block;"><%= item.title %></span></td>
-    <td><%= item.currPrice %></td>
-  </tr>
-  <% end %>
-
-</table>
+<!-- Add shopee codes here -->
 
 <h2>Lazada</h2>
 <table>
   <tr>
     <th>No.</th>
     <th>Name</th>
-    <th>Image</th>
     <th>Price</th>
     <th>Url</th>
+    <th>Favourites</th>
   </tr>
 
   <% @parsedLazada.each do |item| %>
     <tr>
       <td><%= item["id"] %></td>
-      <td><%= item["name"] %></td>
-      <td><img src= <%= item["image"] %>></td>
+      <td><img src= <%= item["img"] %> height="100px" width="100px"><span style="width:300px; height:100px; overflow:auto; display:inline-block;"><%= item["name"] %></span></td>
       <td><%= item["price"] %></td>
       <td> <a href="<%= item["url"] %>">Click here to buy</a> </td>
+      <td><%= link_to 'Add to Favourites', favourites_path(item), method: :post %></td>
     </tr>
   <% end %>
 </table>
