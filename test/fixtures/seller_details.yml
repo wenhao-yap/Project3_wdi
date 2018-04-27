@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  platform: MyString
+  avg_price: MyText
+  count: 1
+  query: one
+
+two:
+  platform: MyString
+  avg_price: MyText
+  count: 1
+  query: two
