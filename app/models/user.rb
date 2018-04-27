@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :favourite
   has_many :query
+
+  validates :name, presence: true
 end

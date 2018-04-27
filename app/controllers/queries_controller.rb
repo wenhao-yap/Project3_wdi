@@ -17,6 +17,10 @@ class QueriesController < ApplicationController
 	end
 
 	def create
+		if params[:name] == ""
+			flash[:notice] = "You have not entered a search query"
+			return redirect_to queries_path
+		end
 		params[:name].downcase!
 		# Query exists in the database
 		if Query.find_by(name: params[:name])
