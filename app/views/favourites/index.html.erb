@@ -1,3 +1,5 @@
+<%= link_to 'Back', queries_path %>
+
 <h1>Favourites#index</h1>
 <p>Find me in app/views/favourites/index.html.erb</p>
 
@@ -6,6 +8,7 @@
   <tr>
     <th>Name</th>
     <th>Price</th>
+    <th>Platform</th>
     <th>Url</th>
     <th>Favourites</th>
   </tr>
@@ -15,6 +18,7 @@
       <td><img src=<%= favourite[:img] %> height="100px" width="100px">
         <span style="width:300px; height:100px; overflow:auto; display:inline-block;"><%= favourite[:name] %></span></td>
       <td><%= favourite[:price] %></td>
+      <td> <b><%= favourite[:platform] %></b> </td>
       <td>
         <a href="<%= favourite[:url] %>">Click here to buy</a>
       </td>
