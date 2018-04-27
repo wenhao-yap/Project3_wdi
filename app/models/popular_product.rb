@@ -1,0 +1,2 @@
+class PopularProduct < ApplicationRecord
+end

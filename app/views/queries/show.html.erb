@@ -1,5 +1,9 @@
 <%= link_to 'Home', queries_path %>
 
+<% if user_signed_in? %>
+  <%= link_to('My Favourites', favourites_path) %>
+<% end %>
+
 <p>
   <strong>Searching for: </strong><%= @query.name %>
 </p>
@@ -20,7 +24,7 @@
     <td><img src= <%= item.img %>><span style="width:300px; height:100px; overflow:auto; display:inline-block;"><%= item.name %></span></td>
     <td><%= item.price %></td>
     <td> <a href="<%= item["url"] %>">Click here to buy</a> </td>
-    <td><%= link_to 'Add to Favourites', favourites_path(item), method: :post %></td>
+    <td><%= link_to 'Add to Favourites', result_favourites_path(item), method: :post %></td>
   </tr>
   <% end %>
 
@@ -44,7 +48,7 @@
       <td><img src= <%= item["img"] %> height="100px" width="100px"><span style="width:300px; height:100px; overflow:auto; display:inline-block;"><%= item["name"] %></span></td>
       <td><%= item["price"] %></td>
       <td> <a href="<%= item["url"] %>">Click here to buy</a> </td>
-      <td><%= link_to 'Add to Favourites', favourites_path(item), method: :post %></td>
+      <td><%= link_to 'Add to Favourites', result_favourites_path(item), method: :post %></td>
     </tr>
   <% end %>
 </table>

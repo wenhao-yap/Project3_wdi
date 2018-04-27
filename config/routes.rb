@@ -5,9 +5,13 @@ Rails.application.routes.draw do
     	get 'users/sign_out' => "devise/sessions#destroy"
 	end
 
-  	resources :queries do
-  		resources :results
+	resources :queries do
+		resources :results
 	end
+
+  resources :results do
+    resources :favourites
+  end
 
   resources :queries
 

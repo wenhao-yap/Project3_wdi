@@ -1,2 +1,27 @@
+<%= link_to 'Back', queries_path %>
+
 <h1>Favourites#index</h1>
 <p>Find me in app/views/favourites/index.html.erb</p>
+
+<h1>My Favourites</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Platform</th>
+    <th>Url</th>
+    <th>Favourites</th>
+  </tr>
+
+  <% @favourites.each do |favourite| %>
+    <tr>
+      <td><img src=<%= favourite[:img] %> height="100px" width="100px">
+        <span style="width:300px; height:100px; overflow:auto; display:inline-block;"><%= favourite[:name] %></span></td>
+      <td><%= favourite[:price] %></td>
+      <td> <b><%= favourite[:platform] %></b> </td>
+      <td>
+        <a href="<%= favourite[:url] %>">Click here to buy</a>
+      </td>
+      <td><%= link_to 'Unfavourite', result_favourite_path(favourite), method: :delete %></td>
+    </tr>
+  <% end %>
