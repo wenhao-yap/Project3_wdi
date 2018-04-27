@@ -31,7 +31,7 @@ class QueriesController < ApplicationController
 		# Query does not exist in the database
 		else
 			@query = Query.new(query_params)
-			@query.user_id = current_user.id
+			@query.user_id = current_user.id if current_user
 			@query.save!
 			redirect_to @query
 		end
@@ -69,6 +69,6 @@ class QueriesController < ApplicationController
 
 	private
 	def query_params
-		params.permit(:name, current_user.id)
+		current_user ? (params.permit(:name, current_user.id)) : (params.permit(:name))
 	end
 end
