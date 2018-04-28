@@ -19,7 +19,7 @@
   <%= link_to 'Edit Profile',edit_user_registration_path %>
   <%= link_to('My Favourites', favourites_path) %>
   <% if current_user.admin? %>
-  	<%= link_to('Admin', admin_index_root_path) %>
+  	<%= link_to('Admins', admins_root_path) %>
   <% end %> 
 <% else %>
   <%= link_to 'Sign In', user_session_path %>
