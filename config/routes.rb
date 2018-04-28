@@ -20,7 +20,5 @@ Rails.application.routes.draw do
     root 'admins#home'
   end
 
-
-
 	root 'queries#index'
 end
