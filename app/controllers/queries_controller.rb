@@ -1,5 +1,5 @@
 require 'Qoo10'
-require 'shopee'
+# require 'shopee'
 require 'ostruct'
 require 'lazada'
 require 'byebug'

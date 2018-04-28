@@ -8,14 +8,18 @@ Rails.application.routes.draw do
 	resources :queries do
 		resources :results
 	end
+  resources :queries
 
   resources :results do
     resources :favourites
   end
+  resources :favourites
+  
+  resources :admin do
+    root 'admin#home'
+  end
 
-  resources :queries
 
-	resources :favourites
 
 	root 'queries#index'
 end
