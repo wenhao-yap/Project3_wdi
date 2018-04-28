@@ -25,7 +25,8 @@ class FavouritesController < ApplicationController
 
   def create
     if current_user
-      favourite = Favourite.create(user_id: current_user.id, result_id: params[:result_id])
+      item = Result.find_by(name: params[:result_id])
+      favourite = Favourite.create(user_id: current_user.id, result_id: item.id)
       favourite.save
     else
       redirect_to user_session_path

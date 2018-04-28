@@ -12,8 +12,8 @@
 <table>
   <tr>
     <th>No.</th>
-    <th>title</th>
-    <th>price</th>
+    <th>Name</th>
+    <th>Price</th>
     <th>Url</th>
     <th>Favourites</th>
   </tr>
@@ -24,7 +24,7 @@
     <td><img src= <%= item.img %>><span style="width:300px; height:100px; overflow:auto; display:inline-block;"><%= item.name %></span></td>
     <td><%= item.price %></td>
     <td> <a href="<%= item["url"] %>">Click here to buy</a> </td>
-    <td><%= link_to 'Add to Favourites', result_favourites_path(item.id), method: :post %></td>
+    <td><%= link_to 'Add to Favourites', result_favourites_path(item.name), method: :post %></td>
   </tr>
   <% end %>
 
@@ -48,7 +48,7 @@
       <td><img src= <%= item["img"] %> height="100px" width="100px"><span style="width:300px; height:100px; overflow:auto; display:inline-block;"><%= item["name"] %></span></td>
       <td><%= item["price"] %></td>
       <td> <a href="<%= item["url"] %>">Click here to buy</a> </td>
-      <td><%= link_to 'Add to Favourites', result_favourites_path(item.id), method: :post %></td>
+      <td><%= link_to 'Add to Favourites', result_favourites_path(item.name), method: :post %></td>
     </tr>
   <% end %>
 </table>
