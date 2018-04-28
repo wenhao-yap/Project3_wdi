@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :favourites
 
   namespace :admin do
-    resources :users
+    resources :users 
     resources :dashboards, only: [:index]
     root 'dashboards#index'
   end
