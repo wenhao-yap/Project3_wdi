@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   resources :favourites
 
   namespace :admin do
-    resources :users 
+    resources :users do
+      #view for confirmation before deletion
+      get "delete"
+    end
     resources :dashboards, only: [:index]
     root 'dashboards#index'
   end

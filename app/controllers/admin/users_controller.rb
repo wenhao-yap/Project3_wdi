@@ -11,6 +11,15 @@ class Admin::UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def new
+		@user = User.new
+	end
+
+	def create
+		@users = User.all
+		@user = User.create(user_params)
+	end	
+
 	def update
 		@users = User.all
 		@user = User.find(params[:id])
@@ -27,12 +36,13 @@ class Admin::UsersController < ApplicationController
   	end
 
   	def destroy
+  		@users = User.all
     	@user = User.find(params[:id])
     	@user.destroy
   	end
 
 	private
   	def user_params
-    	params.require(:user).permit(:name, :email, :admin)
+    	params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
   	end
 end

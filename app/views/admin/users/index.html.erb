@@ -2,6 +2,10 @@
 <p>Find me in app/views/admin/users/index.html.erb</p>
 
 <div class="container">
+  <div class="well">
+    <%= link_to "Add new user", new_admin_user_path, remote: true, class: "btn btn-primary" %>
+  </div>
+  <div class="new-user"></div>
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
