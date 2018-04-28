@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   end
 
 	root 'queries#index'
+
+   #404 page. comment this to see the routing errors
+   # get "*any", via: :all, to: "errors#not_found"
 end
