@@ -7,23 +7,61 @@ class LazadaScraper
   # ===================================
   # Initialize all the necessary attributes
   # ===================================
-  def initialize(query_input)
-    @input = query_input
+  def initialize
     @url = 'https://www.lazada.sg/catalog/?q='
+    @glossary_url = 'https://www.lazada.sg/glossary/'
     @products = []
+    @popular_products = []
+    @popular_products_to_be_displayed = []
+    @product_prices = []
+    @popular_products_keys = [:name, :platform]
     @keys = [:id, :name, :price, :availability, :img, :url]
     @search_data = nil
+    @avg_price = 0
+    @total_items = 0
   end
 
   # ===================================
-  # Scrap out the necessary product data from lazada
+  # Scrap out the popular products from lazada glossary
   # ===================================
-  def scrap
+  def scrap_popular_products
+    agent = Mechanize.new
+
+    # Execute the crawling of popular products from lazada glossary page
+    page = agent.get(@glossary_url)
+    data = Nokogiri::HTML(page.body)
+    data.css('.series-container').css('div.wrapper a').each do |product|
+      @popular_products << product.content
+    end
+
+    # Extract 10 popular products randomly
+    10.times do
+      popular_product = Hash[@popular_products_keys.map {|x| [x,1]}]
+      popular_product[:name] = @popular_products[rand(@popular_products.length-1)]
+      popular_product[:platform] = "Lazada"
+      @popular_products_to_be_displayed << popular_product
+    end
+  end
+
+  # ===================================
+  # Display popular products
+  # ===================================
+  def popular_results
+    JSON.pretty_generate(@popular_products_to_be_displayed)
+  end
+
+  # ===================================
+  # Scrap out the necessary product data from lazada based on the query input
+  # ===================================
+  def scrap(query_input)
     agent = Mechanize.new
 
     # Execute the crawling
-    url = @url + @input
+    url = @url + query_input
     page = agent.get(url)
+
+    # Extract the total number of items found for the query_input
+    @total_items = agent.page.search("script")[2].text.split('"resultTips":')[1].split(',')[1].split(':')[1].split('"')[1].split(' ')[0]
 
     # Extract out relevant details regarding product details
     element = agent.page.search("script")[-1]
@@ -74,11 +112,29 @@ class LazadaScraper
   end
 
   # ===================================
-  # Get the number of products scraped
+  # Get the total number of items found for the search query
   # ===================================
   def total_results
-    @products.count
-    # puts "\n#{@products.count} products found..."
+    @total_items
+    # puts "\n#{@total_items} items found..."
+  end
+
+  # ===================================
+  # Get the average price based on 30 products
+  # ===================================
+  def average_price
+    @products.each do |product|
+      price = product[:price].split(" ")[1]
+      @product_prices << price
+    end
+
+    total_price = 0
+    @product_prices.each do |price|
+      total_price += price.to_f
+    end
+    @avg_price = total_price/@product_prices.length
+    @avg_price = "SGD " + "%.2f" % @avg_price
+    # puts "Average price => #{@avg_price}"
   end
 
   # ===================================
@@ -92,10 +148,14 @@ class LazadaScraper
   end
 end
 
+
 # ===================================
 # Execution
 # ===================================
-# lazada = LazadaScraper.new('pencil')
-# lazada.scrap
+# lazada = LazadaScraper.new
+# lazada.scrap_popular_products
+# puts "10 Popular Products => #{lazada.scrap_popular_products}"
+# lazada.scrap('pencil')
+# lazada.average_price
 # lazada.total_results
 # lazada.cheapest_products

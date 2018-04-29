@@ -7,7 +7,7 @@ require 'byebug'
 class QueriesController < ApplicationController
 
 	before_action :authenticate_user!, :except => [ :show, :index, :create ]
-  
+
 	#search page
 	def index
 	end
@@ -41,7 +41,7 @@ class QueriesController < ApplicationController
 		end
 	end
 
-	#display search results
+	#Display search results
 	def show
 		@query = Query.find(params[:id])
 
@@ -61,10 +61,26 @@ class QueriesController < ApplicationController
 		# 	@result.save
 		# end
 
-		lazada = LazadaScraper.new(@query.name)
-		lazada.scrap
+		# Get the cheapest products from the data scrapped
+		lazada = LazadaScraper.new
+		lazada.scrap(@query.name)
 		@parsedLazada = JSON.parse(lazada.cheapest_products, object_class: OpenStruct)
 
+		# Save the popular products into the database
+		lazada.scrap_popular_products
+		@popular_products = JSON.parse(lazada.popular_results, object_class: OpenStruct)
+		@popular_products.each do |popular_product|
+			@popular_result = PopularProduct.create(name: popular_product["name"], platform: popular_product["platform"])
+			@popular_result.save
+		end
+
+		# Save the average_price and number of items found from the search query into the database
+		@average_price = lazada.average_price
+		@total_items = lazada.total_results
+		@seller_detail_result = SellerDetail.create(platform: "Lazada", avg_price: @average_price, count: @total_items, query_id: params[:id])
+		@seller_detail_result.save
+
+		# Save the search results into the database
 		@parsedLazada.each do |lazada_item|
 			@result = Result.create(name: lazada_item["name"], img: lazada_item["img"], price: lazada_item["price"], url: lazada_item["url"], platform: "Lazada", query_id: params[:id])
 			@result.save

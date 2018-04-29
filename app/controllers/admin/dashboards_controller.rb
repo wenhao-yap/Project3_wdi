@@ -1,7 +1,9 @@
 class Admin::DashboardsController < ApplicationController
   before_action :ensure_admin_user!
 
+  # Gather data from database to be displayed on dashboard
   def index
+    
   end
 
   	private
@@ -10,5 +12,5 @@ class Admin::DashboardsController < ApplicationController
 			flash[:alert] = "You don't have sufficient credentials to access this page."
 			redirect_to root_path
 		end
-	end	
+	end
 end
