@@ -1,14 +1,7 @@
-<% if @showError %>
-<div class="alert alert-dismissable alert-info">
-	<button type="button" class="close" data-dismiss="alert">×</button>
- 	<%= @showError %></div>
-<% end %>
-
-
 <h1>Queries#index</h1>
 <p>Find me in app/views/queries/index.html.erb</p>
 
-<%= form_with scope: :query, local: true do |form| %>
+<%= form_with model: @query do |form| %>
   <%= label_tag(:name, "Search for:") %>
   <%= text_field_tag(:name) %>
   <%= submit_tag("Search") %>
@@ -24,3 +17,7 @@
 <% else %>
   <%= link_to 'Sign In', user_session_path %>
 <% end %>
+
+<div id="results"></div>
+
+<%= javascript_include_tag('queries.js') %>
