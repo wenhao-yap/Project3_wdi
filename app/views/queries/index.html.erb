@@ -20,4 +20,9 @@
 
 <div id="results"></div>
 
-<%= javascript_include_tag('queries.js') %>
+<script type="text/javascript">
+  $( "form" ).submit(function( ) {
+    $('#results').html("loading results. Please wait patiently...")
+  });
+</script>
+
