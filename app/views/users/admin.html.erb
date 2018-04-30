@@ -64,7 +64,7 @@ let sellerChart = document.getElementById('sellerChart').getContext('2d');
     Chart.defaults.global.defaultFontFamily = 'Lato';
     Chart.defaults.global.defaultFontSize = 18;
     Chart.defaults.global.defaultFontColor = '#777';
-    Chart.defaults.global.animation.duration = 2500;
+    Chart.defaults.global.animation.duration = 1500;
 
     let myChartOne = new Chart(sellerChart, {
       type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
@@ -92,7 +92,7 @@ let sellerChart = document.getElementById('sellerChart').getContext('2d');
       options:{
         title:{
           display:true,
-          text:'Number of sellers in each platform',
+          text:'Number of items in each platform',
           fontSize:25
         },
         legend:{
