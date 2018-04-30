@@ -107,7 +107,7 @@ class Qoo10Scraper
 end
 
 # ===================================
-# Execution
+# Sample Execution
 # ===================================
 # qoo10 = Qoo10Scraper.new('pencil')
 # qoo10.search
