@@ -13,3 +13,205 @@
  *= require_tree .
  *= require_self
  */
+
+/*GLOBAL*/
+ .container {
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  max-width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.row{
+  width: 100%;
+}
+
+.color-white {
+  color: white;
+  background-color: transparent;
+}
+
+.view {
+  background: linear-gradient(to right, #0d47a1 , #00796b);
+  background-size: cover;
+}
+
+.vertical-text-center {
+  display: flex;
+  align-items: center;
+}
+
+.vertical-center {
+  min-height: 20%;  
+  min-height: 25vh; 
+
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  outline: none;
+  padding: 8px 10px 8px 10px;
+  background-color: #0f487f;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.main-wrapper {
+  margin-top: 10%;
+}
+
+.index-wrapper {
+  height: 100%;
+}
+
+.color-transparent {
+  background-color: transparent;
+}
+
+.display-inline {
+  display: inline!important;
+}
+
+label {
+  color: white;
+  text-shadow: 0 0 5px #0000cc;
+}
+
+form {
+  margin-top: 10%;
+  display: inherit;
+  justify-content: space-around;
+  align-items: center;
+  background-color: transparent;
+  backface-visibility: hidden;
+}
+
+input {
+  color: #000099;
+  border-radius: 5px;
+}
+
+h3 {
+  margin: 0;
+}
+
+
+html, body {
+  height: 100%;
+  background: linear-gradient(to right, #0d47a1 , #00796b);
+  background-size: cover;
+
+
+}
+
+main {
+  height: 100%
+}
+
+img {
+  margin: 0 auto;
+}
+
+/*HEADER*/
+.navbar {
+  background-color: transparent;
+}
+
+.nav-item {
+  background-color: transparent!important;
+}
+
+.nav-link {
+  background: linear-gradient(to right, #2196f3 , #1976d2);
+  border-color: #1565c0!important;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.nav-item {
+  background-color: gray;
+}
+
+.nav-tabs .nav-link {
+  border: solid 10px;
+}
+
+#search-bar {
+  background: transparent;
+}
+
+.top-nav-collapse {
+  background-color: #4285F4;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #4285F4;
+  }
+}
+
+
+/*FOOTER*/
+
+#footer-tag {
+  color: lightblue;
+}
+
+.footer-col {
+  text-align: center;
+}
+
+.list-unstyled {
+  list-style: none;
+}
+
+.list-unstyled li {
+  display: inline;
+}
+
+
+
+/*Queries*/
+.index-logo {
+  margin-top: 10%;
+}
+
+.card-deck-wrapper {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  border: solid 2px #1a237e;
+}
+
+
+.next-three {
+  text-align: center;
+  justify-content: center;
+}
+
+/*User/Admin*/
+
+.sign-up-form {
+  background-color: #f0f0f5;
+  color: #666699;
+  border-radius: 10px
+}
+
+.md-form {
+  text-align: left;
+}
+
+.md-form label:active {
+  font-size: 0.8rem;
+  transform: translateY(-140%);
+}
+
+.chart {
+  border: solid 1px lightgray;
+}
