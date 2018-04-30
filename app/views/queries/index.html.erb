@@ -1,29 +1,32 @@
-
-<div class="container-fluid">
-	<div class="row vertical-center">
-		<div class="col-lg-2 offset-lg-3">
-			<%= image_tag 'Qoo10.jpeg', height: '150', width: '150' %>
+<div class="index-wrapper">
+	<div class="container view">
+		<div class="row index-logo align-items-center">
+			<div class="col-lg-2 offset-lg-3">
+				<%= image_tag 'Qoo10.jpeg', height: '80', width: '150' %>
+			</div>
+			<div class="col-lg-2">
+				<%= image_tag 'lazada.jpeg', height: '60', width: '160' %>
+			</div>
+			<div class="col-lg-2">
+				<%= image_tag 'carousell.png', height: '80', width: '200' %>
+			</div>
 		</div>
-		<div class="col-lg-2">
-			<%= image_tag 'lazada.jpeg', height: '70', width: '170' %>
+		<div class="row align-items-center">
+			<div class="col-sm-12">
+				<h2>
+					<%= form_with scope: :query, url: queries_path do |form| %>
+					<%= label_tag(:name, "Product:") %>
+					<%= text_field_tag(:name) %>
+					<%= submit_tag("Search") %>
+					<% end %>
+				</h2>
+			</div>
 		</div>
-		<div class="col-lg-2">
-			<%= image_tag 'shopee.jpeg', height: '80', width: '150' %>
-		</div>
-		<div class="col-lg-3"></div>
 	</div>
-
-	<div class="row">
-		<div class="col-sm-12">
-			<h2>
-				<%= form_with scope: :query, local: true do |form| %>
-				<%= label_tag(:name, "Product:") %>
-				<%= text_field_tag(:name) %>
-				<%= submit_tag("Search") %>
-				<% end %>
-			</h2>
-		</div>
-	</div>
+	
 </div>
+
+
+
 
 

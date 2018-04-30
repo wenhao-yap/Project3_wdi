@@ -1,0 +1,161 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+ .container {
+ 	cursor: pointer;
+ 	text-align: center;
+ 	vertical-align: middle;
+ 	width: 100%;
+ }
+
+ .row{
+ 	width: 100%;
+ }
+
+ .platform-title {
+ 	color: brown;
+ 	margin: 0 auto;
+ 	text-align: center;
+ }
+
+
+.view {
+    background: url("https://mdbootstrap.com/img/Photos/Others/img (40).jpg")no-repeat center center;
+    background-size: cover;
+    background-height: 100%
+}
+    
+.navbar {
+    background-color: transparent;
+}
+
+.top-nav-collapse {
+    background-color: #4285F4;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #4285F4;
+    }
+}
+
+.vertical-text-center {
+  display: flex;
+  align-items: center;
+}
+
+.vertical-center {
+  min-height: 20%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 25vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+
+#nav-search {
+  background-color: #99ccff;
+  vertical-align: middle;
+}
+
+
+
+.navbutton {
+  background-color: #99ccff;
+  color: white;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.button {
+  outline: none;
+  padding: 8px 10px 8px 10px;
+  background-color: #0f487f;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.card-deck-wrapper {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.next-three {
+  text-align: center;
+  justify-content: center;
+}
+
+.border {
+  border: solid 1px black;
+}
+
+.sign-up-form {
+	background-color: #f0f0f5;
+	color: #666699;
+}
+
+.md-form {
+	text-align: left;
+}
+
+.md-form label:active {
+  font-size: 0.8rem;
+  transform: translateY(-140%);
+}
+
+.nav-item {
+	background-color: gray;
+}
+
+.nav-tabs .nav-link {
+	border: solid 10px lightgray;
+	color: black;
+	background-color: lightgray;
+}
+
+.chart {
+  border: solid 1px lightgray;
+}
+
+#footer-tag {
+  color: lightblue;
+}
+
+.footer-col {
+  text-align: center;
+}
+
+h3 {
+  margin: 0;
+}
+
+
+html, body {
+  height: 100%;
+}
+
+form {
+  display: block;
+  justify-content: space-around;
+  align-items: center;
+  background: white;
+  backface-visibility: hidden;
+}
+
+

@@ -2,184 +2,13 @@
 ############################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
 Qoo10 -->
 <div class="main-wrapper">
-	<div class="container border d-flex justify-content-around">
+	<div class="container d-flex justify-content-around">
 		<div class="row">
 			<div class="col">
-				<div class="card-deck-wrapper">
-					<div class="platform-title">
-						<%= image_tag 'Qoo10.jpeg', height: '150', width: '150' %>
-					</div>
-					<div class="card-deck d-flex justify-content-around">
-
-						<div class="card mb-4">
-							<div class="view overlay">
-								<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-								<a href="#!">
-									<div class="mask rgba-white-slight"></div>
-								</a>
-							</div>
-							<div class="card-body">
-								<h4 class="card-title"><%= @query.name %></h4>
-								<p class="card-text">
-									<strong>Price:</strong>
-									some price $123
-								</p>
-								<button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
-								<% if @logged_in ==true %>
-								<button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
-								<% end %>
-							</div>
-						</div>
-
-						<div class="card mb-4">
-							<div class="view overlay">
-								<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
-								<a href="#!">
-									<div class="mask rgba-white-slight"></div>
-								</a>
-							</div>
-							<div class="card-body">
-								<h4 class="card-title"><%= @query.name %></h4>
-								<p class="card-text">
-									<strong>Price:</strong>
-									some price $123
-								</p>
-								<button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
-								<% if @logged_in ==true %>
-								<button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
-								<% end %>
-							</div>
-						</div>
-
-						<div class="card mb-4">
-							<div class="view overlay">
-								<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
-								<a href="#!">
-									<div class="mask rgba-white-slight"></div>
-								</a>
-							</div>
-							<div class="card-body">
-								<h4 class="card-title"><%= @query.name %></h4>
-								<p class="card-text">
-									<strong>Price:</strong>
-									some price $123
-								</p>
-								<button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
-								<% if @logged_in ==true %>
-								<button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
-								<% end %>
-							</div>
-						</div>
-					</div>
-					<div class="next-three">
-						<button type="button" class="btn btn-light-blue btn-md">View next three</button>
-					</div>
-					<br>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<br><br>
-
-<!-- 
-	#########################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
-	Lazada -->
-	<div class="main-wrapper">
-		<div class="container border d-flex justify-content-around">
-			<div class="row">
-				<div class="col">
-					<div class="card-deck-wrapper">
-						<div class="platform-title">
-							<br>
-							<%= image_tag 'lazada.jpeg', height: '70', width: '170' %>
-							<br><br>
-						</div>
-						<div class="card-deck d-flex justify-content-around">
-
-							<div class="card mb-4">
-								<div class="view overlay">
-									<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-									<a href="#!">
-										<div class="mask rgba-white-slight"></div>
-									</a>
-								</div>
-								<div class="card-body">
-									<h4 class="card-title"><%= @query.name %></h4>
-									<p class="card-text">
-										<strong>Price:</strong>
-										some price $123
-									</p>
-									<button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
-									<% if @logged_in ==true %>
-									<button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
-									<% end %>
-								</div>
-							</div>
-
-							<div class="card mb-4">
-								<div class="view overlay">
-									<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
-									<a href="#!">
-										<div class="mask rgba-white-slight"></div>
-									</a>
-								</div>
-								<div class="card-body">
-									<h4 class="card-title"><%= @query.name %></h4>
-									<p class="card-text">
-										<strong>Price:</strong>
-										some price $123
-									</p>
-									<button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
-									<% if @logged_in ==true %>
-									<button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
-									<% end %>
-								</div>
-							</div>
-
-							<div class="card mb-4">
-								<div class="view overlay">
-									<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
-									<a href="#!">
-										<div class="mask rgba-white-slight"></div>
-									</a>
-								</div>
-								<div class="card-body">
-									<h4 class="card-title"><%= @query.name %></h4>
-									<p class="card-text">
-										<strong>Price:</strong>
-										some price $123
-									</p>
-									<button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
-									<% if @logged_in ==true %>
-									<button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
-									<% end %>
-								</div>
-							</div>
-						</div>
-						<div class="next-three">
-							<button type="button" class="btn btn-light-blue btn-md">View next three</button>
-						</div>
-						<br>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<br><br>
-
-
-<!-- 
-############################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
-Shopee -->
-<div class="main-wrapper">
-	<div class="container border d-flex justify-content-around">
-		<div class="row">
-			<div class="col">
-				<div class="card-deck-wrapper">
+				<div class="card-deck-wrapper view">
 					<div class="platform-title">
 						<br>
-						<%= image_tag 'shopee.jpeg', height: '80', width: '150' %>
+						<%= image_tag 'Qoo10.jpeg', height: '80', width: '150' %>
 						<br><br>
 					</div>
 					<div class="card-deck d-flex justify-content-around">
@@ -252,6 +81,181 @@ Shopee -->
 			</div>
 		</div>
 	</div>
+
+
+
+
+
+
+	<br><br>
+
+<!-- 
+	#########################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
+	Lazada -->
+	<div class="container d-flex justify-content-around">
+		<div class="row">
+			<div class="col">
+				<div class="card-deck-wrapper view">
+					<div class="platform-title">
+						<br>
+						<%= image_tag 'lazada.jpeg', height: '70', width: '170' %>
+						<br><br>
+					</div>
+					<div class="card-deck d-flex justify-content-around">
+
+						<div class="card mb-4">
+							<div class="view overlay">
+								<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+								<a href="#!">
+									<div class="mask rgba-white-slight"></div>
+								</a>
+							</div>
+							<div class="card-body">
+								<h4 class="card-title"><%= @query.name %></h4>
+								<p class="card-text">
+									<strong>Price:</strong>
+									some price $123
+								</p>
+								<button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
+								<% if @logged_in ==true %>
+								<button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
+								<% end %>
+							</div>
+						</div>
+
+						<div class="card mb-4">
+							<div class="view overlay">
+								<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
+								<a href="#!">
+									<div class="mask rgba-white-slight"></div>
+								</a>
+							</div>
+							<div class="card-body">
+								<h4 class="card-title"><%= @query.name %></h4>
+								<p class="card-text">
+									<strong>Price:</strong>
+									some price $123
+								</p>
+								<button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
+								<% if @logged_in ==true %>
+								<button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
+								<% end %>
+							</div>
+						</div>
+
+						<div class="card mb-4">
+							<div class="view overlay">
+								<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
+								<a href="#!">
+									<div class="mask rgba-white-slight"></div>
+								</a>
+							</div>
+							<div class="card-body">
+								<h4 class="card-title"><%= @query.name %></h4>
+								<p class="card-text">
+									<strong>Price:</strong>
+									some price $123
+								</p>
+								<button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
+								<% if @logged_in ==true %>
+								<button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
+								<% end %>
+							</div>
+						</div>
+					</div>
+					<div class="next-three">
+						<button type="button" class="btn btn-light-blue btn-md">View next three</button>
+					</div>
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br>
+
+
+<!-- 
+############################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
+Shopee -->
+<div class="container d-flex justify-content-around">
+	<div class="row">
+		<div class="col">
+			<div class="card-deck-wrapper view">
+				<div class="platform-title">
+					<br>
+					<%= image_tag 'carousell.png', height: '80', width: '200' %>
+					<br><br>
+				</div>
+				<div class="card-deck d-flex justify-content-around">
+
+					<div class="card mb-4">
+						<div class="view overlay">
+							<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+							<a href="#!">
+								<div class="mask rgba-white-slight"></div>
+							</a>
+						</div>
+						<div class="card-body">
+							<h4 class="card-title"><%= @query.name %></h4>
+							<p class="card-text">
+								<strong>Price:</strong>
+								some price $123
+							</p>
+							<button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
+							<% if @logged_in ==true %>
+							<button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
+							<% end %>
+						</div>
+					</div>
+
+					<div class="card mb-4">
+						<div class="view overlay">
+							<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
+							<a href="#!">
+								<div class="mask rgba-white-slight"></div>
+							</a>
+						</div>
+						<div class="card-body">
+							<h4 class="card-title"><%= @query.name %></h4>
+							<p class="card-text">
+								<strong>Price:</strong>
+								some price $123
+							</p>
+							<button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
+							<% if @logged_in ==true %>
+							<button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
+							<% end %>
+						</div>
+					</div>
+
+					<div class="card mb-4">
+						<div class="view overlay">
+							<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
+							<a href="#!">
+								<div class="mask rgba-white-slight"></div>
+							</a>
+						</div>
+						<div class="card-body">
+							<h4 class="card-title"><%= @query.name %></h4>
+							<p class="card-text">
+								<strong>Price:</strong>
+								some price $123
+							</p>
+							<button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
+							<% if @logged_in ==true %>
+							<button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
+							<% end %>
+						</div>
+					</div>
+				</div>
+				<div class="next-three">
+					<button type="button" class="btn btn-light-blue btn-md">View next three</button>
+				</div>
+				<br>
+			</div>
+		</div>
+	</div>
+</div>
 </div>
 
 

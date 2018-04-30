@@ -1,40 +1,257 @@
-<canvas id="myChart" width="400" height="400"></canvas>
-<script>
-var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
+<br><br><br><br>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-5 offset-1 chart">
+        <canvas id="sellerChart"></canvas>
+      </div>
+      <div class="col-lg-5 chart">
+        <canvas id="topProductChart"></canvas>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 offset-1 chart">
+        <canvas id="averagePriceChart"></canvas>
+      </div>
+      <div class="col-lg-5 chart">
+        <canvas id="#"></canvas>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 offset-2 chart">
+        <canvas id="#"></canvas>
+      </div>
+      <div class="col-lg-4 chart">
+        <canvas id="#"></canvas>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 offset-2 chart">
+        <canvas id="#"></canvas>
+      </div>
+      <div class="col-lg-4 chart">
+        <canvas id="#"></canvas>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Number of sellers
+
+let sellerChart = document.getElementById('sellerChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+    Chart.defaults.global.animation.duration = 2500;
+
+    let myChartOne = new Chart(sellerChart, {
+      type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Qoo10', 'Shopee', 'Lazada'],
+        datasets:[{
+          label:'Sellers',
+          data:[
+          617594,
+          181045,
+          95072
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+          'rgba(255, 206, 86, 0.6)'
+          ],
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
         }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Number of sellers in each platform',
+          fontSize:25
+        },
+        legend:{
+          display:true,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
         }
-    }
-});
-</script>
+      }
+    });
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Average discounts
+
+let topProductChart = document.getElementById('topProductChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let myChartTwo = new Chart(topProductChart, {
+      type:'horizontalBar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Qoo10', 'Shopee', 'Lazada'],
+        datasets:[{
+          label:'in %',
+          data:[
+          12,
+          14,
+          25
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+          'rgba(255, 206, 86, 0.6)'
+          ],
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        scales: {
+          xAxes: [{
+            ticks: {
+              min:0,
+              max:100
+            }
+          }]
+        },
+        title:{
+          display:true,
+          text:'Average discounts (in %)',
+          fontSize:25
+        },
+        legend:{
+          display:false,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Average price
+
+let averagePriceChart = document.getElementById('averagePriceChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let myChartThree = new Chart(averagePriceChart, {
+      type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Qoo10', 'Shopee', 'Lazada'],
+        datasets:[{
+          label:'in $',
+          data:[
+          1943,
+          1743,
+          2512
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+          'rgba(255, 206, 86, 0.6)'
+          ],
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+        title:{
+          display:true,
+          text:'Average price (in $)',
+          fontSize:25
+        },
+        legend:{
+          display:false,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+
+
+  </script>
+</body>
+</html>

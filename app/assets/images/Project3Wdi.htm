@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="./Project3Wdi_files/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="./Project3Wdi_files/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="./Project3Wdi_files/mdb.min.css" rel="stylesheet">
+  <!-- JQuery -->
+  <script type="text/javascript" src="./Project3Wdi_files/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="./Project3Wdi_files/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="./Project3Wdi_files/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="./Project3Wdi_files/mdb.min.js"></script><style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style>
+
+  <!-- chart.js -->
+  <script src="./Project3Wdi_files/Chart.bundle.min.js"></script><style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style>
+  <title>Project3Wdi</title>
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="Tv1V13IGxl2HNVXwhQpN5/IqBZpOkZzhn85MHycW9IPvmOEsR+f6g1y3Z9RYRDFF0dofVRtNxKYvBu6yUZr8Ww==">
+  
+
+  <link rel="stylesheet" media="all" href="./Project3Wdi_files/favourites.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="./Project3Wdi_files/queries.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" data-turbolinks-track="reload">
+<link rel="stylesheet" media="all" href="./Project3Wdi_files/application.self-ae27d1a6ff87f86d7123d29af9499824fd5517a4d70f2591fd9bd32ab34eff29.css" data-turbolinks-track="reload">
+  <script src="./Project3Wdi_files/rails-ujs.self-551fbd47b981dacbb84a270f9123074caf39eb72aaf6f478ab597c6f81435e4b.js" data-turbolinks-track="reload"></script>
+<script src="./Project3Wdi_files/activestorage.self-6e8d967adecc8b2a7259df0f51ef5b6f171c33267c7d149a474beccd90c68697.js" data-turbolinks-track="reload"></script>
+<script src="./Project3Wdi_files/turbolinks.self-2db6ec539b9190f75e1d477b305df53d12904d5cafdd47c7ffd91ba25cbec128.js" data-turbolinks-track="reload"></script>
+<script src="./Project3Wdi_files/action_cable.self-69fddfcddf4fdef9828648f9330d6ce108b93b82b0b8d3affffc59a114853451.js" data-turbolinks-track="reload"></script>
+<script src="./Project3Wdi_files/cable.self-8484513823f404ed0c0f039f75243bfdede7af7919dda65f2e66391252443ce9.js" data-turbolinks-track="reload"></script>
+<script src="./Project3Wdi_files/favourites.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="reload"></script>
+<script src="./Project3Wdi_files/queries.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js" data-turbolinks-track="reload"></script>
+<script src="./Project3Wdi_files/application.self-66347cf0a4cb1f26f76868b4697a9eee457c8c3a6da80c6fdd76ff77e911715e.js" data-turbolinks-track="reload"></script>
+  <!-- <div class="container-fluid navbar d-flex justify-content-around align-self-center">
+	<div class="row vertical-text-center">
+		<div class="col-lg-1">
+			<a href="/" class="navbutton">
+				<img height="50" width="50" src="/assets/logo-033f92b0c82c4b4cb24b0b32812fbadd27eb7216e7ddcbed468d3e3b14f1a2cc.png" />
+			</a>
+		</div>
+		<div class="col-lg-1">
+			<a href="/about" class="navbutton">
+				<h3>About</h3>
+			</a>
+		</div>
+		<div class="col-lg-6">
+			<form action="/queries" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="Ogc45xAmYQQPvmzV2r+jBgx5rgtCDereK6C+idvPvSuHfdXkMKTCQB5hEKINaadcRJfR+l/9AKaYoEirAIcA9Q==" />
+			<h4 id="nav-search">
+				<label for="name">Product:</label>
+				<input type="text" name="name" id="name" />
+				<input type="submit" name="commit" value="Search" data-disable-with="Search" />
+			</h4>
+</form>		</div>
+
+			<div class="col-lg-2">
+				<a href="/log-in">
+					<h4>Log In</h4>
+				</a>
+			</div>
+			<div class="col-lg-2">
+				<a href="/sign-up">
+					<h4>Sign Up</h4>
+				</a>
+			</div>
+	</div>
+</div>
+
+<br><br>
+-->
+
+
+
+
+</head><body><nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+	<a class="navbar-brand" href="http://localhost:3000/#"><strong>Navbar</strong></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="http://localhost:3000/#">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="http://localhost:3000/#">Link</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="http://localhost:3000/#">Profile</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+
+<!--Main Navigation-->
+
+
+
+
+
+  <main style="
+    height: 100%;
+">
+    
+
+
+ <div class="container view" style="
+    height:  100%;
+">
+ 	<div class="row vertical-center">
+ 		<div class="col-lg-2 offset-lg-3">
+ 			<img height="150" width="150" src="./Project3Wdi_files/Qoo10-5801ab2652c6beb051397bde47817ff8f6cba280f718110ab59313d31fcf09c9.jpg">
+ 		</div>
+ 		<div class="col-lg-2">
+ 			<img height="60" width="160" src="./Project3Wdi_files/lazada-d74eacaf5cc4b3f44681709e0bbe42ca7df96b3614035f207e066c1c9578e7d2.jpg">
+ 		</div>
+ 		<div class="col-lg-2">
+ 			<img height="80" width="150" src="./Project3Wdi_files/shopee-9e9561093123adff3db250702f3b5d6038406b8b24bb13304b498fbc04cda0fc.jpg">
+ 		</div>
+ 		<div class="col-lg-3"></div>
+ 	</div>
+
+ 	<div class="row">
+ 		<div class="col-sm-12">
+ 			<h2>
+ 				<form action="http://localhost:3000/queries" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="Tv1V13IGxl2HNVXwhQpN5/IqBZpOkZzhn85MHycW9IPvmOEsR+f6g1y3Z9RYRDFF0dofVRtNxKYvBu6yUZr8Ww==">
+ 				<label for="name">Product:</label>
+ 				<input type="text" name="name" id="name">
+ 				<input type="submit" name="commit" value="Search" data-disable-with="Search">
+</form> 			</h2>
+ 		</div>
+ 	</div>
+ </div>
+
+
+
+  </main>
+  
+<!--Footer-->
+<footer class="page-footer font-small blue pt-4 mt-4">
+
+	<!--Footer Links-->
+	<div class="container-fluid text-center text-md-left">
+		<div class="row">
+
+			<!--First column-->
+			<div class="col-md-4 offset-3 footer-col">
+				<h5 class="text-uppercase">About us</h5><br><br>
+				<h6>
+					Click 
+					<a href="http://localhost:3000/about" id="footer-tag">here</a> 
+					for more information about our application.
+				</h6>
+			</div>
+			<!--/.First column-->
+
+			<!--Second column-->
+			<div class="col-md-2 footer-col">
+				<h5 class="text-uppercase">Platforms</h5>
+				<ul class="list-unstyled">
+					<li>
+						<a href="http://localhost:3000/#!"><img height="40" width="40" src="./Project3Wdi_files/Qoo10-5801ab2652c6beb051397bde47817ff8f6cba280f718110ab59313d31fcf09c9.jpg"></a>
+					</li>
+					<br>
+					<li>
+						<a href="http://localhost:3000/#!"><img height="30" width="80" src="./Project3Wdi_files/lazada-d74eacaf5cc4b3f44681709e0bbe42ca7df96b3614035f207e066c1c9578e7d2.jpg"></a>
+					</li><br>
+					<li>
+						<a href="http://localhost:3000/#!"><img height="30" width="80" src="./Project3Wdi_files/shopee-9e9561093123adff3db250702f3b5d6038406b8b24bb13304b498fbc04cda0fc.jpg"></a>
+					</li>
+				</ul>
+			</div>
+			<!--/.Second column-->
+		</div>
+	</div>
+	<!--/.Footer Links-->
+
+	<!--Copyright-->
+	<div class="footer-copyright py-3 text-center">
+		<a href="https://github.com/wenhao-yap/Project3_wdi/tree/master/config">Visit our GitHub </a>
+	</div>
+	<!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+
+
+
+</body></html>

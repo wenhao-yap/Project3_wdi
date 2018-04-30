@@ -1,6 +1,7 @@
 class QueriesController < ApplicationController
 	#search page
 	def index
+	
 	end
 
 	def new
