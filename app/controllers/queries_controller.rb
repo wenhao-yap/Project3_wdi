@@ -1,13 +1,12 @@
-require 'Qoo10'
-# require 'shopee'
 require 'ostruct'
-require 'lazada'
 require 'byebug'
+require 'Qoo10'
+require 'carousell'
+require 'lazada'
 
 class QueriesController < ApplicationController
-
-	before_action :authenticate_user!, :except => [ :show, :index, :create ]
-
+	before_action :authenticate_user!, :except => [ :index, :create ]
+ 
 	#search page
 	def index
 	end
@@ -27,83 +26,58 @@ class QueriesController < ApplicationController
 			@query = Query.new
 			@query.name = params[:name]
 			searched_query = Query.find_by(name: params[:name])
-			@parsedQoo10 = Result.where(platform: 'Qoo10', query_id: searched_query.id)
-			# @parsedShopee = Result.where(platform: 'Shopee', , query_id: searched_query.id)
-			@parsedLazada = Result.where(platform: 'Lazada', query_id: searched_query.id)
-			puts "Before rendering show and after acquiring all the data from the database"
-			render 'show'
+			parsedQoo10 = Result.where(platform: 'Qoo10', query_id: searched_query.id)
+			parsedLazada = Result.where(platform: 'Lazada', query_id: searched_query.id)
+			parsedCarousell = Result.where(platform: 'Carousell', query_id: searched_query.id)
+			@parsedAll = [{platform:'Qoo10',results:parsedQoo10},{platform:'Lazada',results:parsedLazada},{platform:'Carousell',results:parsedCarousell}]
 		# Query does not exist in the database
 		else
 			@query = Query.new(query_params)
 			@query.user_id = current_user.id if current_user
 			@query.save!
-			redirect_to @query
-		end
-	end
+      
+			qoo10 = Qoo10Scraper.new(@query.name)
+			qoo10.search
+			parsedQoo10 =JSON.parse(qoo10.results, object_class: OpenStruct)
+			addToResults(parsedQoo10,"Qoo10")
 
-	#Display search results
-	def show
-		@query = Query.find(params[:id])
+			lazada = LazadaScraper.new(@query.name)
+			lazada.scrap
+			parsedLazada = JSON.parse(lazada.cheapest_products, object_class: OpenStruct)
+			addToResults(parsedLazada,"Lazada")
 
-		# Get search results based on query input
-		qoo10 = Qoo10Scraper.new(@query.name)
-		qoo10.search
-		@parsedQoo10 = JSON.parse(qoo10.results, object_class: OpenStruct)
+			carousell = CarousellScraper.new(@query.name)
+			carousell.scrap
+			parsedCarousell =JSON.parse(carousell.results, object_class: OpenStruct)
+			addToResults(parsedCarousell,"Carousell")
 
-		# Get the top products available in qoo10
-		@qoo10_bestSeller = JSON.parse(qoo10.bestSellers, object_class: OpenStruct)
-		@qoo10_bestSeller.each do |qoo10_product|
-			@qoo10_popular_result = PopularProduct.create(name: qoo10_product["name"], platform: "Qoo10")
-			@qoo10_popular_result.save
-		end
+			@parsedAll = [{platform:'Qoo10',results:parsedQoo10},{platform:'Lazada',results:parsedLazada},{platform:'Carousell',results:parsedCarousell}]
+      
+      # Save the popular products into the database
+      lazada.scrap_popular_products
+      popular_products = JSON.parse(lazada.popular_results, object_class: OpenStruct)
+      popular_products.each do |popular_product|
+        lazada_popular_result = PopularProduct.create(name: popular_product["name"], platform: popular_product["platform"])
+        lazada_popular_result.save
+      end
 
-		# Save the average_price and number of items found from the search query into the database
-		@average_price = qoo10.average_price(qoo10.results)
-		@total_items = qoo10.total_results
-		@seller_detail_result = SellerDetail.create(platform: "Qoo10", avg_price: @average_price, count: @total_items.to_i, query_id: params[:id])
-		@seller_detail_result.save
-
-		# Save the search results into the database
-		@parsedQoo10.each do |qoo10_item|
-			@result = Result.create(name: qoo10_item["name"], img: qoo10_item["img"], price: qoo10_item["price"], url: qoo10_item["url"], platform: "Qoo10", query_id: params[:id])
-			@result.save
-		end
-
-		# shopee = ShopeeScraper.new(@query.name)
-		# @parsedShopee =JSON.parse(shopee.results, object_class: OpenStruct)
-		# @parsedShopee.each do |shopee_item|
-		# 	@result = Result.create(name: qoo10_item.name, img: qoo10_item.imageLink, price: qoo10_item.currPrice, url: qoo10_item.link, platform: "Shopee", query_id: params[:id])
-		# 	@result.save
-		# end
-
-		# Get the cheapest products from the data scrapped
-		lazada = LazadaScraper.new
-		lazada.scrap(@query.name)
-		@parsedLazada = JSON.parse(lazada.cheapest_products, object_class: OpenStruct)
-
-		# Save the popular products into the database
-		lazada.scrap_popular_products
-		@popular_products = JSON.parse(lazada.popular_results, object_class: OpenStruct)
-		@popular_products.each do |popular_product|
-			@lazada_popular_result = PopularProduct.create(name: popular_product["name"], platform: popular_product["platform"])
-			@lazada_popular_result.save
-		end
-
-		# Save the average_price and number of items found from the search query into the database
-		@average_price = lazada.average_price
-		@total_items = lazada.total_results
-		@seller_detail_result = SellerDetail.create(platform: "Lazada", avg_price: @average_price, count: @total_items, query_id: params[:id])
-		@seller_detail_result.save
-
-		# Save the search results into the database
-		@parsedLazada.each do |lazada_item|
-			@result = Result.create(name: lazada_item["name"], img: lazada_item["img"], price: lazada_item["price"], url: lazada_item["url"], platform: "Lazada", query_id: params[:id])
-			@result.save
+      # Save the average_price and number of items found from the search query into the database
+      average_price = lazada.average_price
+      total_items = lazada.total_results
+      seller_detail_result = SellerDetail.create(platform: "Lazada", avg_price: @average_price, count: @total_items, query_id: params[:id])
+      seller_detail_result.save
 		end
 	end
 
 	private
 	def query_params
 		current_user ? (params.permit(:name, current_user.id)) : (params.permit(:name))
+	end
+
+	def addToResults(hash,platform)
+		hash.each do |item|
+			result = Result.create(name: item["name"], img: item["img"], price: item["price"], url: item["url"], platform: platform, query_id: @query.id)
+			result.save
+		end		
 	end
 end
