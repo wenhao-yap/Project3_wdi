@@ -5,9 +5,8 @@ require 'carousell'
 require 'lazada'
 
 class QueriesController < ApplicationController
-
 	before_action :authenticate_user!, :except => [ :index, :create ]
-  
+ 
 	#search page
 	def index
 	end
@@ -36,7 +35,7 @@ class QueriesController < ApplicationController
 			@query = Query.new(query_params)
 			@query.user_id = current_user.id if current_user
 			@query.save!
-
+      
 			qoo10 = Qoo10Scraper.new(@query.name)
 			qoo10.search
 			parsedQoo10 =JSON.parse(qoo10.results, object_class: OpenStruct)
@@ -52,7 +51,21 @@ class QueriesController < ApplicationController
 			parsedCarousell =JSON.parse(carousell.results, object_class: OpenStruct)
 			addToResults(parsedCarousell,"Carousell")
 
-			@parsedAll = [{platform:'Qoo10',results:parsedQoo10},{platform:'Lazada',results:parsedLazada},{platform:'Carousell',results:parsedCarousell}]							
+			@parsedAll = [{platform:'Qoo10',results:parsedQoo10},{platform:'Lazada',results:parsedLazada},{platform:'Carousell',results:parsedCarousell}]
+      
+      # Save the popular products into the database
+      lazada.scrap_popular_products
+      popular_products = JSON.parse(lazada.popular_results, object_class: OpenStruct)
+      popular_products.each do |popular_product|
+        lazada_popular_result = PopularProduct.create(name: popular_product["name"], platform: popular_product["platform"])
+        lazada_popular_result.save
+      end
+
+      # Save the average_price and number of items found from the search query into the database
+      average_price = lazada.average_price
+      total_items = lazada.total_results
+      seller_detail_result = SellerDetail.create(platform: "Lazada", avg_price: @average_price, count: @total_items, query_id: params[:id])
+      seller_detail_result.save
 		end
 	end
 
