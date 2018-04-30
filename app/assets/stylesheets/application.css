@@ -215,3 +215,7 @@ img {
 .chart {
   border: solid 1px lightgray;
 }
+
+.card-deck{
+  width: 100%;
+}
