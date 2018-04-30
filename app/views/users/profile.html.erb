@@ -1,117 +1,111 @@
 <br><br><br><br>
 <div class="container view">
     <div class="row">
-        <div class="col-lg-10 offset-1">
+        <div class="col-lg-12">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs nav-justified">
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#panel1" role="tab">Profile</a>
+                    <a class="nav-link profile-tab" data-toggle="tab" href="#panel1" role="tab">PROFILE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Favourites</a>
+                    <a class="nav-link favourites-tab" data-toggle="tab" href="#panel2" role="tab">FAVOURITES</a>
                 </li>
             </ul>
+            <br>
+            
             <!-- Tab panels -->
             <div class="tab-content card">
                 <!--Panel 1-->
                 <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
-                    <br>
-                    <h4>
-                        <br>
-                        <strong>Name: </strong>Some random name <br><br>
-                        <strong>Email: </strong>someemail@gmail.com
+                    <h4 class="profile-items">
+                        Tom Dick Harry <br>
+                        someemail@gmail.com
                         <br><br>
-                        <button type="button" class="btn btn-light-blue btn-md">Edit</button>
+                        <button type="button" class="btn btn-yellow btn-md"><strong>EDIT</strong></button>
                     </h4>
+                    <div class="row">
+                        <div class="col-lg-10 offset-1 chart">
+                            <canvas id="sellerChart"></canvas>
+                        </div>
+                    </div>
                 </div>
+
+                
+                <br>
                 <!--/.Panel 1-->
                 <!--Panel 2-->
                 <div class="tab-pane fade" id="panel2" role="tabpanel">
                     <br>
-                    <div class="main-wrapper">
+                    <div class="favourites-wrapper">
                         <div class="container test d-flex justify-content-around">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="card-deck-wrapper">
-                                        <br>
-                                        <div class="card-deck d-flex justify-content-around">
-
-                                            <div class="card mb-4">
-                                                <div class="view overlay">
-                                                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-                                                    <a href="#!">
-                                                        <div class="mask rgba-white-slight"></div>
-                                                    </a>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4 class="card-title">some item</h4>
-                                                    <p class="card-text">
-                                                        <strong>Price:</strong>
-                                                        some price $123
-                                                        <br>
-                                                        <strong>Plaform:</strong>
-                                                        lazada/shopee/qoo10
-                                                    </p>
-                                                    <button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
-                                                    <% if @logged_in ==true %>
-                                                    <button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
-                                                    <% end %>
-                                                </div>
-                                            </div>
-
-                                            <div class="card mb-4">
-                                                <div class="view overlay">
-                                                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
-                                                    <a href="#!">
-                                                        <div class="mask rgba-white-slight"></div>
-                                                    </a>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4 class="card-title">some title</h4>
-                                                    <p class="card-text">
-                                                        <strong>Price:</strong>
-                                                        some price $123
-                                                        <br>
-                                                        <strong>Plaform:</strong>
-                                                        lazada/shopee/qoo10
-                                                    </p>
-                                                    <button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
-                                                    <% if @logged_in ==true %>
-                                                    <button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
-                                                    <% end %>
-                                                </div>
-                                            </div>
-
-                                            <div class="card mb-4">
-                                                <div class="view overlay">
-                                                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
-                                                    <a href="#!">
-                                                        <div class="mask rgba-white-slight"></div>
-                                                    </a>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4 class="card-title">some title</h4>
-                                                    <p class="card-text">
-                                                        <strong>Price:</strong>
-                                                        some price $123
-                                                        <br>
-                                                        <strong>Plaform:</strong>
-                                                        lazada/shopee/qoo10
-                                                    </p>
-                                                    <button type="button" class="btn btn-light-blue btn-md">Buy Now</button>
-                                                    <% if @logged_in ==true %>
-                                                    <button type="button" class="btn btn-light-blue btn-md">Add to favourites</button>
-                                                    <% end %>
-                                                </div>
-                                            </div>
+                            <div class="card-deck-wrapper">
+                                <div class="card-deck d-flex justify-content-around">
+                                    <div class="card mb-4">
+                                        <div class="view overlay">
+                                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+                                            <a href="#!">
+                                                <div class="mask rgba-white-slight"></div>
+                                            </a>
                                         </div>
-                                        <br>
+                                        <div class="card-body">
+                                            <h4 class="card-title">some item</h4>
+                                            <p class="card-text">
+                                                <strong>Price:</strong>
+                                                some price $123
+                                                <br>
+                                                <strong>Plaform:</strong>
+                                                lazada/shopee/qoo10
+                                            </p>
+                                            <button type="button" class="btn btn-yellow btn-md"><strong>Buy Now</strong></button>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="card mb-4">
+                                        <div class="view overlay">
+                                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
+                                            <a href="#!">
+                                                <div class="mask rgba-white-slight"></div>
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <h4 class="card-title">some title</h4>
+                                            <p class="card-text">
+                                                <strong>Price:</strong>
+                                                some price $123
+                                                <br>
+                                                <strong>Plaform:</strong>
+                                                lazada/shopee/qoo10
+                                            </p>
+                                            <button type="button" class="btn btn-yellow btn-md"><strong>Buy Now</strong></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="card mb-4">
+                                        <div class="view overlay">
+                                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
+                                            <a href="#!">
+                                                <div class="mask rgba-white-slight"></div>
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <h4 class="card-title">some title</h4>
+                                            <p class="card-text">
+                                                <strong>Price:</strong>
+                                                some price $123
+                                                <br>
+                                                <strong>Plaform:</strong>
+                                                lazada/shopee/qoo10
+                                            </p>
+                                            <button type="button" class="btn btn-yellow btn-md"><strong>Buy Now</strong></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
-                        <br><br>
                     </div>
                     <!--/.Panel 2-->
                 </div>
@@ -124,4 +118,69 @@
 </div>
 
 
+<script>
+    let sellerChart = document.getElementById('sellerChart').getContext('2d');
 
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+    Chart.defaults.global.animation.duration = 1500;
+
+    let myChartOne = new Chart(sellerChart, {
+      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'Novermber', 'December'],
+        datasets:[{
+          label:'Searches',
+          data:[
+          61754,
+          58045,
+          65072,
+          53423,
+          55723,
+          65623,
+          74382,
+          53246,
+          45372,
+          63619,
+          43719,
+          53829
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+          'rgba(255, 148, 62, 0.5)'
+          ],
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+      }]
+  },
+  options:{
+    title:{
+      display:true,
+      text:'Your searches',
+      fontSize:25
+  },
+  legend:{
+      display:false,
+      position:'right',
+      labels:{
+        fontColor:'#000'
+    }
+},
+layout:{
+  padding:{
+    left:50,
+    right:0,
+    bottom:0,
+    top:0
+}
+},
+tooltips:{
+  enabled:true
+}
+}
+});
+</script>

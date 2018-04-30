@@ -1,47 +1,20 @@
 
 <!--Footer-->
-<footer class="page-footer font-small blue pt-4 mt-4">
-
+<footer class="page-footer">
 	<!--Footer Links-->
-	<div class="container-fluid text-center text-md-left">
-		<div class="row">
-
-			<!--First column-->
-			<div class="col-md-4 offset-3 footer-col">
-				<h4 class="text-uppercase"><strong>About us</strong></h4>
-				<h6>
-					Click 
-					<a href="/about" id="footer-tag">here</a> 
-					for more information about our application.
-				</h6>
-				<h6><a href="https://github.com/wenhao-yap/Project3_wdi/tree/master/config">Visit our GitHub </a></h6>
+	<div class="container">
+		<div class="row index-logo align-items-center">
+			<div class="logos col-lg-2 offset-lg-3">
+				<%= image_tag 'Qoo10.png', height: '40', width: '100' %>
 			</div>
-			<!--/.First column-->
-
-			<!--Second column-->
-			<div class="col-md-3 footer-col">
-				<h4 class="text-uppercase"><strong>Platforms</strong></h4>
-				<ul class="list-unstyled">
-					<li>
-						<a href="https://www.qoo10.sg/"><%= image_tag 'Qoo10.jpeg', height: '30', width: '60' %></a>
-					</li>
-					<li>
-						<a href="https://www.lazada.sg/"><%= image_tag 'lazada.jpeg', height: '30', width: '80' %></a>
-					</li>
-					<li>
-						<a href="https://carousell.com/"><%= image_tag 'carousell.png', height: '40', width: '100' %></a>
-					</li>
-				</ul>
+			<div class="logos col-lg-2">
+				<%= image_tag 'lazada.png', height: '30', width: '80' %>
 			</div>
-			<!--/.Second column-->
+			<div class="logos col-lg-2">
+				<%= image_tag 'carousell.png', height: '30', width: '150' %>
+			</div>
 		</div>
 	</div>
 	<!--/.Footer Links-->
-
-	<!--Copyright-->
-	<div class="footer-copyright py-3 text-center">
-	</div>
-	<!--/.Copyright-->
-
 </footer>
 <!--/.Footer-->

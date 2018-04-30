@@ -1,19 +1,23 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-	<a class="navbar-brand" href="/"><%= image_tag 'logo.png', height: '50', width: '50' %></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item nav-link">
+				|
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/about">About</a>
+				<a class="nav-link" href="/about">ABOUT</a>
 			</li>
-
+			<li class="nav-item nav-link">
+				|
+			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/">Search</a>
+				<a class="nav-link" href="/">SEARCH</a>
 			</li>
 		</ul>
 
@@ -21,9 +25,9 @@
 			<li class="nav-item color-transparent">
 				<div class="nav-link display-inline" id="search-bar">
 					<%= form_with scope: :query, url: queries_path do |form| %>
-					<%= label_tag(:name, "Product:") %>
+					<%= label_tag(:name, "PRODUCT:") %>
 					<%= text_field_tag(:name) %>
-					<%= submit_tag("Search") %>
+					<%= submit_tag("SEARCH") %>
 					<% end %>
 				</div>
 			</li>
@@ -33,10 +37,13 @@
 
 		<ul class="navbar-nav nav-flex-icons">
 			<li class="nav-item">
-				<a class="nav-link" href="/log-in">Login</a>
+				<a class="nav-link" href="/log-in">LOGIN</a>
+			</li>
+			<li class="nav-item nav-link">
+				|
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/sign-up">Sign up</a>
+				<a class="nav-link" href="/sign-up">SIGN UP</a>
 			</li>
 		</ul>
 	</div>
