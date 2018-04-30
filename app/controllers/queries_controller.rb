@@ -45,10 +45,25 @@ class QueriesController < ApplicationController
 	def show
 		@query = Query.find(params[:id])
 
+		# Get search results based on query input
 		qoo10 = Qoo10Scraper.new(@query.name)
 		qoo10.search
-		@parsedQoo10 =JSON.parse(qoo10.results, object_class: OpenStruct)
+		@parsedQoo10 = JSON.parse(qoo10.results, object_class: OpenStruct)
 
+		# Get the top products available in qoo10
+		@qoo10_bestSeller = JSON.parse(qoo10.bestSellers, object_class: OpenStruct)
+		@qoo10_bestSeller.each do |qoo10_product|
+			@qoo10_popular_result = PopularProduct.create(name: qoo10_product["name"], platform: "Qoo10")
+			@qoo10_popular_result.save
+		end
+
+		# Save the average_price and number of items found from the search query into the database
+		@average_price = qoo10.average_price(qoo10.results)
+		@total_items = qoo10.total_results
+		@seller_detail_result = SellerDetail.create(platform: "Qoo10", avg_price: @average_price, count: @total_items.to_i, query_id: params[:id])
+		@seller_detail_result.save
+
+		# Save the search results into the database
 		@parsedQoo10.each do |qoo10_item|
 			@result = Result.create(name: qoo10_item["name"], img: qoo10_item["img"], price: qoo10_item["price"], url: qoo10_item["url"], platform: "Qoo10", query_id: params[:id])
 			@result.save
@@ -70,8 +85,8 @@ class QueriesController < ApplicationController
 		lazada.scrap_popular_products
 		@popular_products = JSON.parse(lazada.popular_results, object_class: OpenStruct)
 		@popular_products.each do |popular_product|
-			@popular_result = PopularProduct.create(name: popular_product["name"], platform: popular_product["platform"])
-			@popular_result.save
+			@lazada_popular_result = PopularProduct.create(name: popular_product["name"], platform: popular_product["platform"])
+			@lazada_popular_result.save
 		end
 
 		# Save the average_price and number of items found from the search query into the database
