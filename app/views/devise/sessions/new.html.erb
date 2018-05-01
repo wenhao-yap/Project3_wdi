@@ -8,20 +8,18 @@
 				<div class="login-form">
 					<div class="md-form">
 						<i class="fa fa-envelope prefix amber-text"></i>
-						<%= f.email_field :email, autofocus: true, class:"form-control", id: "materialFormRegisterEmailEx" %>
-						<label for="materialFormRegisterEmailEx">Your email</label>
+						<%= f.email_field :email, autofocus: true, class:"form-control", id: "materialFormRegisterEmailEx", placeholder:"Your Email" %>
 					</div>
 					<div class="md-form">
 						<div>
 							<i class="fa fa-lock prefix amber-text"></i>
-							<%= f.password_field :password, autocomplete: "off", class:"form-control", id:"materialFormRegisterPasswordEx" %>
-							<label for="materialFormRegisterPasswordEx">Your password</label>
+							<%= f.password_field :password, autocomplete: "off", class:"form-control", id:"materialFormRegisterPasswordEx", placeholder:"Your Password" %>
 						</div>
 					</div>
 					<div class="text-center mt-4">
 						<%= f.submit "Sign in", class:"btn-login" %>
+						<%= link_to 'Register', new_user_registration_path, :class=>"btn-login" %>
 					</div>
-					<div><%= render "devise/shared/links" %></div>
 				</div>				
 			</div>
 		</div>
