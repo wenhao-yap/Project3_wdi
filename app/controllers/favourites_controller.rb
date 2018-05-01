@@ -10,7 +10,7 @@ class FavouritesController < ApplicationController
     favourites.each do |favourite|
       result = Result.find(favourite.result_id)
       result_id = favourite.result_id
-      next if result.url == nil
+      # next if result.url == nil
       fav = Hash[keys.map {|x| [x,1]}]
       fav[:id] = result.id
       fav[:result_id] = result_id
@@ -42,6 +42,10 @@ class FavouritesController < ApplicationController
   def destroy
     favourite_id = Favourite.find_by(result_id: params[:result_id]).id
     puts "Id to be deleted => #{favourite_id}"
+
+    item = Result.find(params[:result_id])
+    item.update(favourited: false)
+
     Favourite.destroy(favourite_id)
     redirect_to result_favourites_path
   end

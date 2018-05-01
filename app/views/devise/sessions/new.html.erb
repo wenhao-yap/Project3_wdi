@@ -18,9 +18,11 @@
 					</div>
 					<div class="text-center mt-4">
 						<%= f.submit "Sign in", class:"btn-login" %>
-						<%= link_to 'Register', new_user_registration_path, :class=>"btn-login" %>
 					</div>
-				</div>				
+					<div class="text-center mt-4">
+						No account yet? <%= link_to 'Register', new_user_registration_path%>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
