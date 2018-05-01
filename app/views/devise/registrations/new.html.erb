@@ -8,35 +8,31 @@
                 <!-- Material input text -->
                 <div class="md-form">
                     <i class="fa fa-user prefix grey-text"></i>
-                    <%= f.text_field :name, autofocus: true,class:"form-control", id:"materialFormRegisterNameEx" %>
-                    <label for="materialFormRegisterNameEx">Your name</label>
+                    <%= f.text_field :name, autofocus: true,class:"form-control", id:"materialFormRegisterNameEx", placeholder: "Your Name" %>
                 </div>
 
                 <!-- Material input email -->
                 <div class="md-form">
                     <i class="fa fa-envelope prefix grey-text"></i>
-                    <%= f.email_field :email, autofocus: true, class:"form-control", id:"materialFormRegisterEmailEx" %>
-                    <label for="materialFormRegisterEmailEx">Your email</label>
-                </div>
-
-                <!-- Material input password -->
-                <div class="md-form">
-                    <i class="fa fa-exclamation-triangle prefix grey-text"></i>
-                    <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"materialFormRegisterPasswordEx" %>
-                    <label for="materialFormRegisterConfirmEx">Your password</label>
+                    <%= f.email_field :email, autofocus: true, class:"form-control", id:"materialFormRegisterEmailEx", placeholder: "Your Email" %>
                 </div>
 
                 <!-- Material input password -->
                 <div class="md-form">
                     <i class="fa fa-lock prefix grey-text"></i>
-                    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"materialFormRegisterPasswordEx" %>
-                    <label for="materialFormRegisterPasswordEx">Confirm password</label>
+                    <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"materialFormRegisterPasswordEx", placeholder: "Password" %>
+                </div>
+
+                <!-- Material input password -->
+                <div class="md-form">
+                    <i class="fa fa-lock prefix grey-text"></i>
+                    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"materialFormRegisterPasswordEx", placeholder: "Confirm Password" %>
                 </div>
 
                 <div class="text-center mt-4">
                     <%= f.submit "Register", class:"btn btn-primary" %>
+                    <%= link_to 'LOGIN', user_session_path,:class=>"btn btn-primary" %>
                 </div>
-                <div><%= render "devise/shared/links" %></div>
             </div>
         </div>
     </div>
