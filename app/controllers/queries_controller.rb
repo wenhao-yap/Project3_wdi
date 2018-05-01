@@ -6,7 +6,7 @@ require 'lazada'
 
 class QueriesController < ApplicationController
 	before_action :authenticate_user!, :except => [ :index, :create, :about]
-	layout "front"  
+	layout "front"
 
 	#search page
 	def index
@@ -52,7 +52,7 @@ class QueriesController < ApplicationController
 			parsedLazada = JSON.parse(lazada.cheapest_products, object_class: OpenStruct)
 			addToResults(parsedLazada,"Lazada")
 			lazada_average_price = lazada.average_price
-      		lazada_total_items = lazada.total_results
+      lazada_total_items = lazada.total_results
 			addToSellerDetails_Lazada(lazada_average_price, lazada_total_items)
 
 			carousell = CarousellScraper.new(@query.name)
@@ -84,13 +84,13 @@ class QueriesController < ApplicationController
 			end
 
 			# Save popular products for Carousell platform if it has not been saved before
-			if PopularProduct.where(platform: 'Carousell').length == 0
-				carousell_bestSeller = JSON.parse(carousell.bestSellers, object_class: OpenStruct)
-				carousell_bestSeller.each do |carousell_product|
-					carousell_popular_result = PopularProduct.create(name: carousell_product["name"], platform: "Carousell")
-					carousell_popular_result.save
-				end
-			end
+			# if PopularProduct.where(platform: 'Carousell').length == 0
+			# 	carousell_bestSeller = JSON.parse(carousell.bestSellers, object_class: OpenStruct)
+			# 	carousell_bestSeller.each do |carousell_product|
+			# 		carousell_popular_result = PopularProduct.create(name: carousell_product["name"], platform: "Carousell")
+			# 		carousell_popular_result.save
+			# 	end
+			# end
 
 		end
 	end
@@ -102,7 +102,7 @@ class QueriesController < ApplicationController
 
 	def addToResults(hash,platform)
 		hash.each do |item|
-			result = Result.create(name: item["name"], img: item["img"], price: item["price"], url: item["url"], platform: platform, query_id: @query.id)
+			result = Result.create(name: item["name"], img: item["img"], price: item["price"], url: item["url"], platform: platform, favourited: false, query_id: @query.id)
 			result.save
 		end
 	end

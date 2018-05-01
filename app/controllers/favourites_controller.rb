@@ -1,6 +1,6 @@
 class FavouritesController < ApplicationController
-  layout "front" 
-  
+  layout "front"
+
   def index
     favourites = Favourite.where(user_id: current_user.id)
 
@@ -28,6 +28,10 @@ class FavouritesController < ApplicationController
   def create
     if current_user
       item = Result.find_by(name: params[:result_id])
+
+      # Update favourited attribute boolean value to be true when a search result is added to favourites
+      item.update(favourited: true)
+
       favourite = Favourite.create(user_id: current_user.id, result_id: item.id)
       favourite.save
     else

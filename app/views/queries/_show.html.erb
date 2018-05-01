@@ -14,7 +14,7 @@
                 <br><br>
             </div>
             <div class="row">
-                <% site[:results].each do |item| %>     
+                <% site[:results].each do |item| %>
                     <!-- Grid column -->
                     <div class="col-md-4 mb-r d-flex align-items-stretch queryCard">
                         <!--Card-->
@@ -35,12 +35,13 @@
                                 <!--Text-->
                                 <p class="card-text"><strong>Price:</strong><%= item.price %></p>
                                 <button type="button" class="btn btn-yellow btn-md" href="<%= item["url"] %>"><strong>Buy Now</strong></button>
-                                <% if user_signed_in? %>
-                                <%= link_to 'Add to Favourites', result_favourites_path(item.name), method: :post, class: "btn btn-yellow btn-md" %></td>
-                                <% end %>                               
+                                <% if item.favourited %>
+                                <% else %>
+                                    <%= link_to 'Add to Favourites', result_favourites_path(item.name), method: :post, class: "btn btn-yellow btn-md", id: item.id, :onclick => "toggle_fav_bt(this.id)" %>
+                                <% end %>
                             </div>
                         </div>
-                        <!--/.Card--> 
+                        <!--/.Card-->
                     </div>
                 <% end %>
             </div>
@@ -49,3 +50,8 @@
     </div>
 </div>
 
+<script type="text/javascript">
+  function toggle_fav_bt(clicked_id) {
+    document.getElementById(clicked_id).style.display = "none";
+  }
+</script>
