@@ -249,6 +249,10 @@ img {
   margin-top: 10%;
 }
 
+.info {
+  color: white;
+}
+
 .card-deck-wrapper {
   justify-content: center;
   text-align: center;
@@ -300,7 +304,7 @@ img {
   color: orange;
   font-family: DIN alternate;
   letter-spacing: 3px;
-  font-size: 20px;
+  font-size: 22px;
   padding-right: 20px;
 }
 
@@ -313,11 +317,16 @@ img {
 }
 
 .btn-login {
+  background-color: orange;
   letter-spacing: 1px;
   font-size: 20px;
+  border-radius: 10px;
 }
 
-
+.orange {
+  background-color: transparent!important;
+  color: orange;
+}
 
 
 

@@ -6,13 +6,12 @@
 			</div>
 		</div>
 		<div class="row align-items-center">
-			<div class="col-sm-12">
-				<h2>
-					<%= form_with scope: :query, url: queries_path do |form| %>
-					<%= label_tag(:name, "PRODUCT:") %>
-					<%= text_field_tag(:name) %>
-					<%= submit_tag("SEARCH") %>
-					<% end %>
+			<div class="col-sm-10 offset-1">
+				<h2 class="info">
+					<strong>
+						Cross-platform search engine! <br> Enter your search request above to find your desired product!
+					</strong>
+					
 				</h2>
 			</div>
 		</div>
