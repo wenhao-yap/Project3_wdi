@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       #view for confirmation before deletion
       get "delete"
     end
-    resources :dashboards, only: [:index]
+    resources :dashboards
     root 'dashboards#index'
   end
 

@@ -49,9 +49,9 @@ class CarousellScraper
 			url = 'https://sg.carousell.com'
 			{
 				id: i+1,
-				name: item.css('.q-l').text,
+				name: item.css('#productCardTitle').text,
 				price: item.css('dd')[0].text,
-				url: url + item.css('.q-e').attr('href'),
+				url: url + item.css('#productCardThumbnail').attr('href'),
 				img:  item.css('img')[1].attr('src')
 			}
 		}
@@ -65,12 +65,12 @@ class CarousellScraper
 		end
 
 		total_price = 0
-    @product_prices.each do |price|
-      total_price += price
-    end
-    @avg_price = total_price/@product_prices.length
-    @avg_price = "SGD " + "%.2f" % @avg_price
-    # puts "Average price => #{@avg_price}"
+    	@product_prices.each do |price|
+      	total_price += price
+    	end
+    	@avg_price = total_price/@product_prices.length
+    	@avg_price = "SGD " + "%.2f" % @avg_price
+    	# puts "Average price => #{@avg_price}"
 	end
 end
 
@@ -79,4 +79,5 @@ end
 # ===================================
 # carousell = CarousellScraper.new('wireless mouse')
 # carousell.scrap
+# puts carousell.results
 # carousell.average_price

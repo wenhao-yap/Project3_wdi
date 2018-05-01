@@ -5,8 +5,10 @@
 	    <td><%= user.admin %></td>
 	    <td><%= user.last_sign_in_at %></td>
 	    <td><%= user.created_at %></td>
-	    <td><%= link_to "Edit", edit_admin_user_path(user.id),remote: true, class: "btn btn-default" %>
+	    <td><%= link_to "Edit", edit_admin_user_path(user.id),remote: true, class: "btn btn-success" %>
 	    	<%= link_to "Delete", admin_user_delete_path(user.id), remote: true, class: "btn btn-danger" %>
 	    </td>
 	  </tr>
 <% end %>
+
+  

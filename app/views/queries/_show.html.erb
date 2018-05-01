@@ -1,36 +1,24 @@
-<div class="container">
-    <p><strong>Searching for: </strong><%= @query.name %></p>
+<p><strong>Searching for: </strong><%= @query.name %></p>
 
-    <% @parsedAll.each do |site| %>
-        <!-- Grid row -->
-        <div class="row">
-            <% site[:results].each do |item| %>     
-                <!-- Grid column -->
-                <div class="col-md-4 mb-r d-flex align-items-stretch">
-                    <!--Card-->
-                    <div class="card">
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <div style="width:200px; height:200px; margin:0 auto">
-                                <img class="card-img-top" src= <%= item["img"] %>
-                                <a href="#">
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-                        </div>
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!--Title-->
-                            <h4 class="card-title"><%= item.name %></h4>
-                            <!--Text-->
-                            <p class="card-text"><strong>Price:</strong><%= item.price %></p>
-                            <a href="<%= item["url"] %> class="btn btn-primary">Click to buy</a>
-                            
-                        </div>
-                    </div>
-                    <!--/.Card--> 
-                </div>
-            <% end %>
-        </div>
-    <% end %>
-</div>    
+<% @parsedAll.each do |site| %>
+<h2><%= site[:platform] %></h2>
+<table>
+    <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Url</th>
+        <th>Favourites</th>
+    </tr>
+
+    <% site[:results].each do |item| %>
+    <tr>
+        <td><%= item.id %></td>
+        <td><img src= <%= item["img"] %> height="100px" width="100px"><span style="width:300px; height:100px; overflow:auto; display:inline-block;"><%= item.name %></span></td>
+        <td><%= item.price %></td>
+        <td> <a href="<%= item["url"] %>">Click here to buy</a> </td>
+        <td><%= link_to 'Add to Favourites', result_favourites_path(item.name), method: :post %></td>
+    </tr>
+<% end %>
+</table>
+<% end %>

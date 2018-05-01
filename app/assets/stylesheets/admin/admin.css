@@ -1,0 +1,6 @@
+/*
+ * Manifest file for admin styles, to be compiled into admin.css
+ *
+ *= require_self
+ *= require_tree
+ */
