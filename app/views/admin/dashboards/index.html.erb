@@ -1,145 +1,42 @@
-<div class="wrapper din-font">
-   <div class="sidebar" data-color="orange">
-    <div class="logo">
-     <a href="#" class="simple-text">ADMIN</a>
- </div>
- <div class="sidebar-wrapper">
-     <ul class="nav">
-        <li><a href="/"><i class="material-icons">exit_to_app</i><p class="nowrap">Exit Admin</p></a></li>
-        <li class="active"><a class="dashboard" href="/admin"><i class="material-icons">dashboard</i><p class="dashboard-text">Dashboard</p></a></li>
-        <li><a href="/admin/users"><i class="material-icons">content_paste</i><p class="nowrap">Manage Users</p></a></li>
-    </ul>
-</div>
-</div>
-<div class="main-panel">
-   <nav class="navbar navbar-expand-lg navbar-white navbar-absolute fixed-top">
-    <div class="container-fluid">
-        <div class="quest-logo">
-            <%= image_tag 'orangelogo.png', height: '45', width: '92.5' %>
-
-        </div>
-        <div class="navbar-header">
-            <a class="navbar-brand welcome">Welcome back, Admin <%= current_user.name %>!</a>
-        </div>
-        <%= form_with model: @query, class: "navbar-form navbar-left" do |form| %>
-        <div class="form-group  is-empty">
-            <%= text_field_tag :name, "",placeholder: "Search for..", class:"form-control" %>
-            <span class="material-input"></span>
-        </div>
-        <button type="submit" class="btn btn-white btn-round btn-just-icon">
-            <i class="material-icons">search</i>
-            <div class="ripple-container">
-
+<div class="wrapper">
+	<div class="sidebar" data-color="orange">
+		<div class="logo">
+			<a href="#" class="simple-text">QUEST ADMIN</a>
+		</div>
+		<div class="sidebar-wrapper">
+			<ul class="nav">
+				<li><a href="/"><i class="material-icons">exit_to_app</i><p>Exit Admin</p></a></li>
+				<li class="active"><a href="/admin"><i class="material-icons">dashboard</i><p>Dashboard</p></a></li>
+				<li><a href="/admin/users"><i class="material-icons">content_paste</i><p>Manage Users</p></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="main-panel">
+		<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                     <a class="navbar-brand">Welcome back admin (<%= current_user.name %>)</a>
+                </div>
+                <%= form_with model: @query, class: "navbar-form navbar-left" do |form| %>
+                    <div class="form-group  is-empty">
+                        <%= text_field_tag :name, "",placeholder: "Search for..", class:"form-control" %>
+                        <span class="material-input"></span>
+                    </div>
+                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                        <i class="material-icons">search</i>
+                        <div class="ripple-container"></div>
+                    </button>
+                <% end %>              
             </div>
-        </button>
-        <% end %>              
-    </div>
-</nav>
-<div class="content">
-
-
-
-
-
+        </nav>
+        <div class="content">
+        	<div id="results"></div>
+		</div>
+	</div>
 </div>
-
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-11 chart">
-            <canvas id="userTrafficChart"></canvas>
-        </div>
-    </div>
-</div>
-<div id="results">
-
-</div>
-</div>
-</div>
-
 
 <script type="text/javascript">
   $(".navbar-form").submit(function( ) {
     $('#results').html("loading results. Please wait patiently...")
-});
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////User traffic
-
-let userTrafficChart = document.getElementById('userTrafficChart').getContext('2d');
-
-    // Global Options
-    Chart.defaults.global.defaultFontFamily = 'Lato';
-    Chart.defaults.global.defaultFontSize = 18;
-    Chart.defaults.global.defaultFontColor = '#777';
-
-    let myChartTwo = new Chart(userTrafficChart, {
-      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
-      data:{
-        labels:['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'Novermber', 'December'],
-        datasets:[{
-          label:'in %',
-          data:[
-          61754,
-          58045,
-          65072,
-          53423,
-          55723,
-          65623,
-          74382,
-          53246,
-          45372,
-          63619,
-          43719,
-          53829
-          ],
-          //backgroundColor:'green',
-          backgroundColor:[
-          'rgba(255, 206, 86, 0.6)'
-          ],
-          borderWidth:1,
-          borderColor:'#777',
-          hoverBorderWidth:3,
-          hoverBorderColor:'#000'
-      }]
-  },
-  options:{
-    scales: {
-      xAxes: [{
-        ticks: {
-          min:0,
-          max:100
-      }
-  }]
-},
-title:{
-  display:true,
-  text:'User Traffic',
-  fontSize:25
-},
-legend:{
-  display:false,
-  position:'right',
-  labels:{
-    fontColor:'#000'
-}
-},
-layout:{
-  padding:{
-    left:50,
-    right:0,
-    bottom:0,
-    top:0
-}
-},
-tooltips:{
-  enabled:true
-}
-}
-});
-
-
-
+  });
 </script>

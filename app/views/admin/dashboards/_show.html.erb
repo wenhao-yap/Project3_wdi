@@ -1,168 +1,28 @@
-<br><br>
 <% if @query %>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-4 offset-1 chart">
-            <canvas id="sellerChart"></canvas>
-        </div>
-        <div class="col-lg-6 chart">
-            <canvas id="averagePriceChart"></canvas>
-        </div>
-    </div>
     <div class="container fluid">
-        <div class="row"> 
+            <div class="row"> 
             <% @parsedAll.each do |site| %>
             <div class="col-md-4">
-                <h2><%= site[:platform] %></h2>
-                <table class="table">
-                    <tr>
-                        <th>No.</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                    </tr>
-                    <% site[:results].each do |item| %>
-                    <tr>
-                        <td><%= item.id %></td>
-                        <td><a href="<%= item["url"] %>"><%= item.name %></td>
-                            <td><%= item.price %></td>
-                        </tr>
-                        <% end %>
-                    </table>
-                </div>
-                <% end %>                
-            </div>
+            <h2><%= site[:platform] %></h2>
+            <table class="table">
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                <% site[:results].each do |item| %>
+                <tr>
+                    <td><%= item.id %></td>
+                    <td><a href="<%= item["url"] %>"><%= item.name %></td>
+                    <td><%= item.price %></td>
+                </tr>
+            <% end %>
+            </table>
         </div>
-        <% else %>
-        <p>You have not entered a search query</p>   
-        <% end %> 
+        <% end %>                
+        </div>
+    </div>
+<% else %>
+   <p>You have not entered a search query</p>   
+<% end %> 
 
-        <script>
-
-
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Number of sellers
-
-      let sellerChart = document.getElementById('sellerChart').getContext('2d');
-
-    // Global Options
-    Chart.defaults.global.defaultFontFamily = 'Lato';
-    Chart.defaults.global.defaultFontSize = 18;
-    Chart.defaults.global.defaultFontColor = '#777';
-    Chart.defaults.global.animation.duration = 1500;
-
-    let myChartOne = new Chart(sellerChart, {
-      type:'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
-      data:{
-        labels:['Qoo10', 'Shopee', 'Carousell'],
-        datasets:[{
-          label:'Sellers',
-          data:[
-          617594,
-          181045,
-          95072
-          ],
-          //backgroundColor:'green',
-          backgroundColor:[
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)'
-          ],
-          borderWidth:1,
-          borderColor:'#777',
-          hoverBorderWidth:3,
-          hoverBorderColor:'#000'
-      }]
-  },
-  options:{
-    circumference: 2*Math.PI,
-    title:{
-      display:true,
-      text:'No. of items in each platform',
-      fontSize:20
-  },
-  legend:{
-      display:false,
-      position:'top',
-      labels:{
-        fontColor:'#000'
-    }
-},
-layout:{
-  padding:{
-    left:50,
-    right:0,
-    bottom:0,
-    top:0
-}
-},
-tooltips:{
-  enabled:true
-}
-}
-});
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Average price
-
-    let averagePriceChart = document.getElementById('averagePriceChart').getContext('2d');
-
-    // Global Options
-    Chart.defaults.global.defaultFontFamily = 'Lato';
-    Chart.defaults.global.defaultFontSize = 18;
-    Chart.defaults.global.defaultFontColor = '#777';
-
-    let myChartThree = new Chart(averagePriceChart, {
-      type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
-      data:{
-        labels:['Qoo10', 'Shopee', 'Carousell'],
-        datasets:[{
-          label:'in $',
-          data:[
-          1943,
-          1743,
-          2512
-          ],
-          //backgroundColor:'green',
-          backgroundColor:[
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)'
-          ],
-          borderWidth:1,
-          borderColor:'#777',
-          hoverBorderWidth:3,
-          hoverBorderColor:'#000'
-      }]
-  },
-  options:{
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
-      }
-  }]
-},
-title:{
-    display:true,
-    text:'Average price (in $)',
-    fontSize:20
-},
-legend:{
-  display:false,
-  position:'right',
-  labels:{
-    fontColor:'#000'
-}
-},
-layout:{
-  padding:{
-    left:50,
-    right:0,
-    bottom:0,
-    top:0
-}
-},
-tooltips:{
-  enabled:true
-}
-}
-});
-</script>
