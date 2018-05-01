@@ -1,30 +1,29 @@
-<h2>Sign in</h2>
-
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
-
-<div>
-    <%= f.label :email %>
-    <div>
-        <%= f.email_field :email, autofocus: true  %>
-    </div>
-</div>
-
-<div>
-    <%= f.label :password %>
-    <div>
-        <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-</div>
-
-<% if devise_mapping.rememberable? -%>
-<div>
-    <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-</div>
-<% end -%>
-
-<div><%= f.submit "Sign in" %></div>
-
-<div><%= render "devise/shared/links" %></div>
-<%= link_to 'Home', queries_path %>
+	<div class="container">
+		<div class="row form-group">
+			<div class="col-lg-6 offset-3 sign-up-form">
+				<br>
+				<p class="login text-center">LOGIN</p>
+				<!-- Material input email -->
+				<div class="login-form">
+					<div class="md-form">
+						<i class="fa fa-envelope prefix amber-text"></i>
+						<%= f.email_field :email, autofocus: true, class:"form-control", id: "materialFormRegisterEmailEx" %>
+						<label for="materialFormRegisterEmailEx">Your email</label>
+					</div>
+					<div class="md-form">
+						<div>
+							<i class="fa fa-lock prefix amber-text"></i>
+							<%= f.password_field :password, autocomplete: "off", class:"form-control", id:"materialFormRegisterPasswordEx" %>
+							<label for="materialFormRegisterPasswordEx">Your password</label>
+						</div>
+					</div>
+					<div class="text-center mt-4">
+						<%= f.submit "Sign in", class:"btn-login" %>
+					</div>
+					<div><%= render "devise/shared/links" %></div>
+				</div>				
+			</div>
+		</div>
+	</div>
 <% end %>

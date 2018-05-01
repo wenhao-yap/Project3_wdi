@@ -1,33 +1,44 @@
-<h2>Sign up</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
-<div style="display:none"><%= devise_error_messages! %></div>
+    <div style="display:none"><%= devise_error_messages! %></div>
+    <div class="container">
+        <div class="row form-group">
+            <div class="col-lg-6 offset-3 sign-up-form">
+                <br>
+                <p class="h4 text-center">Sign up</p>
+                <!-- Material input text -->
+                <div class="md-form">
+                    <i class="fa fa-user prefix grey-text"></i>
+                    <%= f.text_field :name, autofocus: true,class:"form-control", id:"materialFormRegisterNameEx" %>
+                    <label for="materialFormRegisterNameEx">Your name</label>
+                </div>
 
-<div>
-    <%= f.label :name %>
-    <div><%= f.text_field :name, autofocus: true %></div>
-</div>
+                <!-- Material input email -->
+                <div class="md-form">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    <%= f.email_field :email, autofocus: true, class:"form-control", id:"materialFormRegisterEmailEx" %>
+                    <label for="materialFormRegisterEmailEx">Your email</label>
+                </div>
 
-<div>
-    <%= f.label :email %>
-    <div> <%= f.email_field :email %></div>
-</div>
+                <!-- Material input password -->
+                <div class="md-form">
+                    <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+                    <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"materialFormRegisterPasswordEx" %>
+                    <input type="email" id="materialFormRegisterConfirmEx" class="form-control">
+                    <label for="materialFormRegisterConfirmEx">Your password</label>
+                </div>
 
-<div>
-    <%= f.label :password %>
-    <div><%= f.password_field :password, autocomplete: "off" %></div>
-</div>
+                <!-- Material input password -->
+                <div class="md-form">
+                    <i class="fa fa-lock prefix grey-text"></i>
+                    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"materialFormRegisterPasswordEx" %>
+                    <label for="materialFormRegisterPasswordEx">Confirm password</label>
+                </div>
 
-<div>
-    <%= f.label :password_confirmation %>
-    <div><%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-</div>
-
-<div>
-    <%= f.submit "Sign up" %>
-</div>
-
-<div>
-    <%= render "devise/shared/links" %>
-</div>
-<%= link_to 'Home', queries_path %>
+                <div class="text-center mt-4">
+                    <%= f.submit "Register", class:"btn btn-primary" %>
+                </div>
+                <div><%= render "devise/shared/links" %></div>
+            </div>
+        </div>
+    </div>
 <% end %>

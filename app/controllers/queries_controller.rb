@@ -5,7 +5,7 @@ require 'carousell'
 require 'lazada'
 
 class QueriesController < ApplicationController
-	before_action :authenticate_user!, :except => [ :index, :create ]
+	before_action :authenticate_user!, :except => [ :index, :create, :about]
 	layout "front"  
 
 	#search page

@@ -49,7 +49,7 @@ class Qoo10Scraper
 	# Get the search results in JSON format
 	def results
 		items = @searchData.css('tbody > tr')
-		output = items[0..9].each_with_index.map { |item, i|
+		output = items[0..8].each_with_index.map { |item, i|
 			{
 				id: i+1,
 				name: item.css('.sbj').text,

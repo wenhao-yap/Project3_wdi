@@ -1,28 +1,28 @@
-<h1>Queries#index</h1>
-<p>Find me in app/views/queries/index.html.erb</p>
-
-<%= form_with model: @query do |form| %>
-  <%= label_tag(:name, "Search for:") %>
-  <%= text_field_tag(:name) %>
-  <%= submit_tag("Search") %>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= link_to('Sign out', destroy_user_session_path) %>
-  <%= link_to 'Edit Profile',edit_user_registration_path %>
-  <%= link_to('My Favourites', favourites_path) %>
-  <% if current_user.admin? %>
-  	<%= link_to('Admin', admin_root_path) %>
-  <% end %> 
-<% else %>
-  <%= link_to 'Sign In', user_session_path %>
-<% end %>
+<div class="index-wrapper">
+  <div class="container view">
+    <div class="row index-logo align-items-center">
+      <div class="main-logo col-lg-12">
+        <%= image_tag 'logo.png', height: '240', width: '440' %>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-sm-10 offset-1">
+        <h2 class="info">
+          <strong>
+            Cross-platform search engine! <br> Enter your search request above to find your desired product!
+          </strong>          
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div id="results"></div>
 
 <script type="text/javascript">
   $( "form" ).submit(function( ) {
     $('#results').html("loading results. Please wait patiently...")
+    $(".index-wrapper")[0].style.display = "none"
   });
 </script>
 
