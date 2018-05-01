@@ -61,7 +61,11 @@
                                                       <!--Text-->
                                                       <p class="card-text"><strong>Price:</strong><%= favourite[:price] %></p>
                                                       <p class="card-text"><strong>Platform:</strong><%= favourite[:platform] %></p>
-                                                      <button type="button" class="btn btn-yellow btn-md" href="<%= favourite[:url] %>"><strong>Buy Now</strong></button>
+                                                      <% if favourite[:url] == nil %>
+                                                        <button type="button" class="btn btn-yellow btn-md" disabled><strong>Buy Now</strong></button>
+                                                      <% else %>
+                                                        <button type="button" class="btn btn-yellow btn-md" onClick="window.open('<%= favourite[:url] %>');"><strong>Buy Now</strong></button>
+                                                      <% end %>
                                                       <%= link_to 'Unfavourite', result_favourite_path(favourite), method: :delete, class: "btn btn-yellow btn-md" %></td>
                                                   </div>
                                               </div>

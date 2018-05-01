@@ -10,7 +10,7 @@ class FavouritesController < ApplicationController
     favourites.each do |favourite|
       result = Result.find(favourite.result_id)
       result_id = favourite.result_id
-      next if result.url == nil
+      # next if result.url == nil
       fav = Hash[keys.map {|x| [x,1]}]
       fav[:id] = result.id
       fav[:result_id] = result_id
