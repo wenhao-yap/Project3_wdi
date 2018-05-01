@@ -1,47 +1,26 @@
 <% if @query %>
-    <div class="container">
-        <p><strong>Searching for: </strong><%= @query.name %></p>
-
-        <% @parsedAll.each do |site| %>
-            <!-- Grid row -->
-            <div class="row">
-                <% site[:results].each do |item| %>  
-                <div class="col-lg-6 col-md-8">
-                    <div class="card">
-                        <div class="card-header-tabs card-header-primary">
-                            <div class="nav-tabs-navigation">
-                                <div class="nav-tabs-wrapper">
-                                    <ul class="nav nav-tabs" data-tabs="tabs">
-                                        <li class="nav-item">
-                                            <a class="nav-link active show" href="#profile" data-toggle="tab">
-                                                <i class="material-icons">bug_report</i> Qoo10
-                                                <div class="ripple-container"></div>
-                                            <div class="ripple-container"></div></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#messages" data-toggle="tab">
-                                                <i class="material-icons">code</i> Lazada
-                                                <div class="ripple-container"></div>
-                                            <div class="ripple-container"></div></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#settings" data-toggle="tab">
-                                                <i class="material-icons">cloud</i> Carousell
-                                                <div class="ripple-container"></div>
-                                            <div class="ripple-container"></div></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            
-                        </div>
-                    </div>
-                </div>
-                <% end %>
-            </div>
-        <% end %> 
+    <div class="container fluid">
+            <div class="row"> 
+            <% @parsedAll.each do |site| %>
+            <div class="col-md-4">
+            <h2><%= site[:platform] %></h2>
+            <table class="table">
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                <% site[:results].each do |item| %>
+                <tr>
+                    <td><%= item.id %></td>
+                    <td><a href="<%= item["url"] %>"><%= item.name %></td>
+                    <td><%= item.price %></td>
+                </tr>
+            <% end %>
+            </table>
+        </div>
+        <% end %>                
+        </div>
     </div>
 <% else %>
    <p>You have not entered a search query</p>   

@@ -23,11 +23,11 @@ class CarousellScraper
 		url = 'https://sg.carousell.com/special/recommended-sellers/'
 		page = @agent.get(url)
 		data = Nokogiri::HTML(page.body)
-		items = data.css('.q-_a')
+		items = data.css('#productCardTitle')
 		output = items[0..9].each_with_index.map { |item, i|
 			{
 				id: i+1,
-				name: item.css('.q-l').text
+				name: item.text
 			}
 		}
 		JSON.pretty_generate(output)
@@ -78,6 +78,7 @@ end
 # Sample Execution
 # ===================================
 # carousell = CarousellScraper.new('wireless mouse')
+# puts carousell.bestSellers
 # carousell.scrap
 # puts carousell.results
 # carousell.average_price

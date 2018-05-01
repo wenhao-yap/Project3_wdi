@@ -143,8 +143,8 @@ class LazadaScraper
   def cheapest_products
     top_products = @products.sort_by { |hsh| hsh[:price] }
 
-    JSON.pretty_generate(top_products[0 .. 10])
-    # puts "Best Seller products => #{JSON.pretty_generate(top_products[0 .. 10])}"
+    JSON.pretty_generate(top_products[0 .. 9])
+    # puts "Best Seller products => #{JSON.pretty_generate(top_products[0 .. 9])}"
   end
 end
 
