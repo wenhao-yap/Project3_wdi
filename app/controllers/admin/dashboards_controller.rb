@@ -1,3 +1,5 @@
+require 'masterScrapper'
+
 class Admin::DashboardsController < ApplicationController
   	before_action :ensure_admin_user!
   	layout "admin"  
@@ -20,7 +22,14 @@ class Admin::DashboardsController < ApplicationController
 			parsedLazada = Result.where(platform: 'Lazada', query_id: searched_query.id)
 			parsedCarousell = Result.where(platform: 'Carousell', query_id: searched_query.id)
 			@parsedAll = [{platform:'Qoo10',results:parsedQoo10},{platform:'Lazada',results:parsedLazada},{platform:'Carousell',results:parsedCarousell}]
-		end
+		else
+			@query = Query.new
+			@query.name = params[:name]
+			@query.user_id = @current_user.id
+			@query.save!
+			scrap = MasterScrapper.new(@query)
+			@parsedAll = scrap.generate
+		end 	
   	end
 
   	private

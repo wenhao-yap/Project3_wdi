@@ -1,3 +1,4 @@
+<div class="index-wrapper">
 <br><br><br><br>
 <div class="container view">
     <div class="row">
@@ -73,17 +74,17 @@
                                           </div>
                                       <% end %>
                                   </div>
-                                </div>
-                            </div>
+                              </div>
 
-                        </div>
+                          </div>
 
-                    </div>
-                    <!--/.Panel 2-->
-                </div>
-            </div>
-        </div>
-    </div>
+                      </div>
+                      <!--/.Panel 2-->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
 
 
@@ -156,5 +157,10 @@
     }
   });
 }
+
+  $( "form" ).submit(function( ) {
+    $('#results').html("loading results. Please wait patiently...")
+    $(".index-wrapper")[0].style.display = "none"
+  });
 
 </script>
