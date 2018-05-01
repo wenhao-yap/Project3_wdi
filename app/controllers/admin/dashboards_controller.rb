@@ -2,9 +2,8 @@ require 'masterScrapper'
 
 class Admin::DashboardsController < ApplicationController
   	before_action :ensure_admin_user!
-  	layout "admin"  
+  	layout "admin"
 
-  	# Gather data from database to be displayed on dashboard
   	def index
   	end
 
@@ -29,7 +28,7 @@ class Admin::DashboardsController < ApplicationController
 			@query.save!
 			scrap = MasterScrapper.new(@query)
 			@parsedAll = scrap.generate
-		end 	
+		end
   	end
 
   	private

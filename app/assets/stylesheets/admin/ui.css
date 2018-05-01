@@ -22,9 +22,9 @@
 
 .simple-text {
 	font-size: 50px!important;
-	text-align: left!important;
-	padding-left: 20px!important;
-	padding-top: 16px!important;
+	text-align: center!important;
+	/* padding-left: 20px!important;
+	padding-top: 16px!important; */
 	color: #ff9800!important;
 }
 

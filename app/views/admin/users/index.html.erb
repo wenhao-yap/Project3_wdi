@@ -1,50 +1,65 @@
 <div class="wrapper">
-    <div class="sidebar" data-color="orange">
-        <div class="logo">
-            <a href="#" class="simple-text">QUEST ADMIN</a>
-        </div>
-        <div class="sidebar-wrapper">
-            <ul class="nav">
-                <li><a href="/"><i class="material-icons">exit_to_app</i><p>Exit Admin</p></a></li>
-                <li><a href="/admin"><i class="material-icons">dashboard</i><p>Dashboard</p></a></li>
-                <li class="active"><a href="/admin/users"><i class="material-icons">content_paste</i><p>Manage Users</p></a></li>
-            </ul>
-        </div>
+  <div class="sidebar" data-color="orange">
+    <div class="logo">
+      <h2 class="simple-text">ADMIN</h2>
     </div>
-<div class="main-panel">
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li>
+          <a href="/">
+            <i class="material-icons">exit_to_app</i>
+            <p>Exit Admin</p>
+          </a>
+        </li>
+        <li>
+          <a href="/admin">
+            <i class="material-icons">dashboard</i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+        <li class="active">
+          <a href="/admin/users">
+            <i class="material-icons">content_paste</i>
+            <p>Manage Users</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="main-panel">
     <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-wrapper">
-                <a class="navbar-brand">Manage Users</a>
-            </div>
+      <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <h1 class="navbar-brand">Manage Users</h1>
         </div>
+      </div>
     </nav>
     <div class="content">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header" id="userCardTable">
-                    <h4 class="card-title">Registered users</h4>
-                </div>
-                <div class="card-body table-responsive">
-                    <table class="table table-hover table-striped">
-                        <thead class="text-warning">
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Admin</th>
-                                <th>Last login</th>
-                                <th>Date created</th>
-                                <th>&nbsp;</th>
-                            </tr>
-                        </thead>
-                        <tbody class="user-index">
-                            <%= render "index" %>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div id="user-modal" class="modal fade"></div>
-            <%= link_to "Add new user", new_admin_user_path, remote: true, class: "btn btn-warning"%>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" id="userCardTable">
+            <h4 class="card-title">Registered users</h4>
+          </div>
+          <div class="card-body table-responsive">
+            <table class="table table-hover table-striped">
+              <thead class="text-warning">
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Admin</th>
+                  <th>Last login</th>
+                  <th>Date created</th>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody class="user-index">
+                <%= render "index" %>
+              </tbody>
+            </table>
+          </div>
         </div>
+        <div id="user-modal" class="modal fade"></div>
+        <%= link_to "Add new user", new_admin_user_path, remote: true, class: "btn btn-warning"%>
+      </div>
     </div>
-</div>
+  </div>
