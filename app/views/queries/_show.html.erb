@@ -17,7 +17,11 @@
         <td><img src= <%= item["img"] %> height="100px" width="100px"><span style="width:300px; height:100px; overflow:auto; display:inline-block;"><%= item.name %></span></td>
         <td><%= item.price %></td>
         <td> <a href="<%= item["url"] %>">Click here to buy</a> </td>
-        <td><%= link_to 'Add to Favourites', result_favourites_path(item.name), method: :post %></td>
+        <% if item.favourited == true %>
+          <td><%= link_to 'Unfavourite', result_favourite_path(favourite), method: :delete %></td>
+        <% else %>
+          <td><%= link_to 'Add to Favourites', result_favourites_path(item.name), method: :post %></td>
+        <% end %>
     </tr>
 <% end %>
 </table>
