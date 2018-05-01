@@ -52,7 +52,7 @@ class QueriesController < ApplicationController
 			parsedLazada = JSON.parse(lazada.cheapest_products, object_class: OpenStruct)
 			addToResults(parsedLazada,"Lazada")
 			lazada_average_price = lazada.average_price
-      lazada_total_items = lazada.total_results
+      		lazada_total_items = lazada.total_results
 			addToSellerDetails_Lazada(lazada_average_price, lazada_total_items)
 
 			carousell = CarousellScraper.new(@query.name)

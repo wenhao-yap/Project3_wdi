@@ -1,85 +1,87 @@
+<div class="index-wrapper">
 <br><br><br><br>
-<div class="container view">
-    <div class="row">
-        <div class="col-lg-12">
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs nav-justified">
-                <li class="nav-item">
-                    <a class="nav-link profile-tab" data-toggle="tab" href="#panel1" role="tab">PROFILE</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link favourites-tab" data-toggle="tab" href="#panel2" role="tab">FAVOURITES</a>
-                </li>
-            </ul>
-            <br>
-            
-            <!-- Tab panels -->
-            <div class="tab-content card">
-                <!--Panel 1-->
-                <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
-                    <h4 class="profile-items">
-                        <%= current_user.name %> <br>
-                        <%= current_user.email %>
-                        <br><br>
-                        <%= link_to 'EDIT PROFILE',edit_user_registration_path, class:"btn btn-yellow btn-md" %>
-                    </h4>
-                    <div class="row">
-                        <div class="col-lg-10 offset-1 chart">
-                            <canvas id="sellerChart"></canvas>
-                        </div>
-                    </div>
-                </div>
+  <div class="container view">
+      <div class="row">
+          <div class="col-lg-12">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs nav-justified">
+                  <li class="nav-item">
+                      <a class="nav-link profile-tab" data-toggle="tab" href="#panel1" role="tab">PROFILE</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link favourites-tab" data-toggle="tab" href="#panel2" role="tab">FAVOURITES</a>
+                  </li>
+              </ul>
+              <br>
+              
+              <!-- Tab panels -->
+              <div class="tab-content card">
+                  <!--Panel 1-->
+                  <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+                      <h4 class="profile-items">
+                          <%= current_user.name %> <br>
+                          <%= current_user.email %>
+                          <br><br>
+                          <%= link_to 'EDIT PROFILE',edit_user_registration_path, class:"btn btn-yellow btn-md" %>
+                      </h4>
+                      <div class="row">
+                          <div class="col-lg-10 offset-1 chart">
+                              <canvas id="sellerChart"></canvas>
+                          </div>
+                      </div>
+                  </div>
 
-                
-                <br>
-                <!--/.Panel 1-->
-                <!--Panel 2-->
-                <div class="tab-pane fade" id="panel2" role="tabpanel">
-                    <br>
-                    <div class="favourites-wrapper">
-                        <div class="container test d-flex justify-content-around">
-                            <div class="card-deck-wrapper">
-                                <div class="card-deck d-flex justify-content-around">
-                                  <div class="row">
-                                      <% @favourites.each do |favourite| %>     
-                                          <div class="col-md-4 mb-r d-flex align-items-stretch queryCard">
-                                              <!--Card-->
-                                              <div class="card">
-                                                  <!--Card image-->
-                                                  <div class="view overlay">
-                                                      <div style="width:200px; height:200px; margin:0 auto">
-                                                          <img class="card-img-top" src= <%= favourite[:img] %>>
-                                                          <a href="#">
-                                                              <div class="mask rgba-white-slight"></div>
-                                                          </a>
-                                                      </div>
-                                                  </div>
-                                                  <!--Card content-->
-                                                  <div class="card-body">
-                                                      <!--Title-->
-                                                      <h4 class="card-title"><%= favourite[:name] %></h4>
-                                                      <!--Text-->
-                                                      <p class="card-text"><strong>Price:</strong><%= favourite[:price] %></p>
-                                                      <p class="card-text"><strong>Platform:</strong><%= favourite[:platform] %></p>
-                                                      <button type="button" class="btn btn-yellow btn-md" href="<%= favourite[:url] %>"><strong>Buy Now</strong></button>
-                                                      <%= link_to 'Unfavourite', result_favourite_path(favourite), method: :delete, class: "btn btn-yellow btn-md" %></td>                             
-                                                  </div>
-                                              </div>
-                                              <!--/.Card--> 
-                                          </div>
-                                      <% end %>
+                  
+                  <br>
+                  <!--/.Panel 1-->
+                  <!--Panel 2-->
+                  <div class="tab-pane fade" id="panel2" role="tabpanel">
+                      <br>
+                      <div class="favourites-wrapper">
+                          <div class="container test d-flex justify-content-around">
+                              <div class="card-deck-wrapper">
+                                  <div class="card-deck d-flex justify-content-around">
+                                    <div class="row">
+                                        <% @favourites.each do |favourite| %>     
+                                            <div class="col-md-4 mb-r d-flex align-items-stretch queryCard">
+                                                <!--Card-->
+                                                <div class="card">
+                                                    <!--Card image-->
+                                                    <div class="view overlay">
+                                                        <div style="width:200px; height:200px; margin:0 auto">
+                                                            <img class="card-img-top" src= <%= favourite[:img] %>>
+                                                            <a href="#">
+                                                                <div class="mask rgba-white-slight"></div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <!--Card content-->
+                                                    <div class="card-body">
+                                                        <!--Title-->
+                                                        <h4 class="card-title"><%= favourite[:name] %></h4>
+                                                        <!--Text-->
+                                                        <p class="card-text"><strong>Price:</strong><%= favourite[:price] %></p>
+                                                        <p class="card-text"><strong>Platform:</strong><%= favourite[:platform] %></p>
+                                                        <button type="button" class="btn btn-yellow btn-md" href="<%= favourite[:url] %>"><strong>Buy Now</strong></button>
+                                                        <%= link_to 'Unfavourite', result_favourite_path(favourite), method: :delete, class: "btn btn-yellow btn-md" %></td>                             
+                                                    </div>
+                                                </div>
+                                                <!--/.Card--> 
+                                            </div>
+                                        <% end %>
+                                    </div>
                                   </div>
-                                </div>
-                            </div>
+                              </div>
 
-                        </div>
+                          </div>
 
-                    </div>
-                    <!--/.Panel 2-->
-                </div>
-            </div>
-        </div>
-    </div>
+                      </div>
+                      <!--/.Panel 2-->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
 
 
@@ -152,6 +154,11 @@
     }
   });
 }
+
+  $( "form" ).submit(function( ) {
+    $('#results').html("loading results. Please wait patiently...")
+    $(".index-wrapper")[0].style.display = "none"
+  });
 
 </script>
 
