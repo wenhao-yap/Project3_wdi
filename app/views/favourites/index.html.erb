@@ -1,3 +1,4 @@
+<div class="index-wrapper">
 <br><br><br><br>
 <div class="container view">
     <div class="row">
@@ -12,7 +13,7 @@
                 </li>
             </ul>
             <br>
-            
+
             <!-- Tab panels -->
             <div class="tab-content card">
                 <!--Panel 1-->
@@ -30,7 +31,7 @@
                     </div>
                 </div>
 
-                
+
                 <br>
                 <!--/.Panel 1-->
                 <!--Panel 2-->
@@ -41,7 +42,7 @@
                             <div class="card-deck-wrapper">
                                 <div class="card-deck d-flex justify-content-around">
                                   <div class="row">
-                                      <% @favourites.each do |favourite| %>     
+                                      <% @favourites.each do |favourite| %>
                                           <div class="col-md-4 mb-r d-flex align-items-stretch queryCard">
                                               <!--Card-->
                                               <div class="card">
@@ -61,25 +62,29 @@
                                                       <!--Text-->
                                                       <p class="card-text"><strong>Price:</strong><%= favourite[:price] %></p>
                                                       <p class="card-text"><strong>Platform:</strong><%= favourite[:platform] %></p>
-                                                      <button type="button" class="btn btn-yellow btn-md" href="<%= favourite[:url] %>"><strong>Buy Now</strong></button>
-                                                      <%= link_to 'Unfavourite', result_favourite_path(favourite), method: :delete, class: "btn btn-yellow btn-md" %></td>                             
+                                                      <% if favourite[:url] == nil %>
+                                                        <button type="button" class="btn btn-yellow btn-md" disabled><strong>Buy Now</strong></button>
+                                                      <% else %>
+                                                        <button type="button" class="btn btn-yellow btn-md" onClick="window.open('<%= favourite[:url] %>');"><strong>Buy Now</strong></button>
+                                                      <% end %>
+                                                      <%= link_to 'Unfavourite', result_favourite_path(favourite), method: :delete, class: "btn btn-yellow btn-md" %></td>
                                                   </div>
                                               </div>
-                                              <!--/.Card--> 
+                                              <!--/.Card-->
                                           </div>
                                       <% end %>
                                   </div>
-                                </div>
-                            </div>
+                              </div>
 
-                        </div>
+                          </div>
 
-                    </div>
-                    <!--/.Panel 2-->
-                </div>
-            </div>
-        </div>
-    </div>
+                      </div>
+                      <!--/.Panel 2-->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
 
 
@@ -153,5 +158,9 @@
   });
 }
 
-</script>
+  $( "form" ).submit(function( ) {
+    $('#results').html("loading results. Please wait patiently...")
+    $(".index-wrapper")[0].style.display = "none"
+  });
 
+</script>

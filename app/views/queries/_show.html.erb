@@ -14,7 +14,7 @@
                 <br><br>
             </div>
             <div class="row">
-                <% site[:results].each do |item| %>     
+                <% site[:results].each do |item| %>
                     <!-- Grid column -->
                     <div class="col-md-4 mb-r d-flex align-items-stretch queryCard">
                         <!--Card-->
@@ -34,15 +34,15 @@
                                 <h4 class="card-title"><%= item.name %></h4>
                                 <!--Text-->
                                 <p class="card-text"><strong>Price:</strong><%= item.price %></p>
-                                <button type="button" class="btn btn-yellow btn-md" href="<%= item["url"] %>"><strong>Buy Now</strong></button>
-                                <% if item.favourited == true %>
-                                    <%= link_to 'Unfavourite', result_favourite_path(favourite), method: :post, class: "btn btn-yellow btn-md" %>
+
+                                <button type="button" class="btn btn-yellow btn-md" onClick="window.open('<%= item["url"] %>');"><strong>Buy Now</strong></button>
+                                <% if item.favourited %>
                                 <% else %>
-                                    <%= link_to 'Add to Favourites', result_favourites_path(item.name), method: :post, class: "btn btn-yellow btn-md" %>
-                                <% end %>                               
+                                    <%= link_to 'Add to Favourites', result_favourites_path(item.name), method: :post, class: "btn btn-yellow btn-md", id: item.name, :onclick => "toggle_fav_bt(this.id)" %>
+                                <% end %>
                             </div>
                         </div>
-                        <!--/.Card--> 
+                        <!--/.Card-->
                     </div>
                 <% end %>
             </div>
@@ -51,3 +51,9 @@
     </div>
 </div>
 
+<!-- JavaScript logic to make add to favourite button disappear once clicked... -->
+<script type="text/javascript">
+  function toggle_fav_bt(clicked_id) {
+    document.getElementById(clicked_id).style.display = "none";
+  }
+</script>

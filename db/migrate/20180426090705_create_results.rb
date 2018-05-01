@@ -6,7 +6,7 @@ class CreateResults < ActiveRecord::Migration[5.2]
       t.string :price
       t.string :url
       t.text :platform
-      t.boolean :favourited
+      t.boolean :favourited, default: false
       t.references :query, foreign_key: true
 
       t.timestamps
