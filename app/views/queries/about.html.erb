@@ -1,0 +1,23 @@
+<div class="index-wrapper">
+	<div class="container view">
+		<br><br><br><br><br>
+		<div class="row">
+			<div class="col-sm-6 offset-3">
+				<h2 class="color-white">
+					Cross-platform search engine for all products in Qoo10 , Lazada and Carousell! <br><br>
+					Enter your desired product on the search bar to view results! <br><br>
+					<a href="/sign-up">Sign up</a> to store your favourite products for future viewing! <br>
+				</h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="results"></div>
+
+<script type="text/javascript">
+  $( "form" ).submit(function( ) {
+    $('#results').html("loading results. Please wait patiently...")
+    $(".index-wrapper")[0].style.display = "none"
+  });
+</script>

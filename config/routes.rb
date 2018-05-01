@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   	devise_scope :user do
@@ -21,9 +20,11 @@ Rails.application.routes.draw do
       #view for confirmation before deletion
       get "delete"
     end
-    resources :dashboards, only: [:index]
+    resources :dashboards
     root 'dashboards#index'
   end
+
+  get 'about' => "queries#about"
 
 	root 'queries#index'
 

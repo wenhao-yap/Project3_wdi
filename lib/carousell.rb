@@ -23,11 +23,11 @@ class CarousellScraper
 		url = 'https://sg.carousell.com/special/recommended-sellers/'
 		page = @agent.get(url)
 		data = Nokogiri::HTML(page.body)
-		items = data.css('.q-_a')
+		items = data.css('#productCardTitle')
 		output = items[0..9].each_with_index.map { |item, i|
 			{
 				id: i+1,
-				name: item.css('.q-l').text
+				name: item.text
 			}
 		}
 		JSON.pretty_generate(output)
@@ -45,13 +45,13 @@ class CarousellScraper
 
 	def results
 		items = @searchData.css('.e-_a > div')
-		output = items[0..9].each_with_index.map { |item, i|
+		output = items[0..8].each_with_index.map { |item, i|
 			url = 'https://sg.carousell.com'
 			{
 				id: i+1,
-				name: item.css('.q-l').text,
+				name: item.css('#productCardTitle').text,
 				price: item.css('dd')[0].text,
-				url: url + item.css('.q-e').attr('href'),
+				url: url + item.css('#productCardThumbnail').attr('href'),
 				img:  item.css('img')[1].attr('src')
 			}
 		}
@@ -65,12 +65,12 @@ class CarousellScraper
 		end
 
 		total_price = 0
-    @product_prices.each do |price|
-      total_price += price
-    end
-    @avg_price = total_price/@product_prices.length
-    @avg_price = "SGD " + "%.2f" % @avg_price
-    # puts "Average price => #{@avg_price}"
+    	@product_prices.each do |price|
+      	total_price += price
+    	end
+    	@avg_price = total_price/@product_prices.length
+    	@avg_price = "SGD " + "%.2f" % @avg_price
+    	# puts "Average price => #{@avg_price}"
 	end
 end
 
@@ -78,5 +78,7 @@ end
 # Sample Execution
 # ===================================
 # carousell = CarousellScraper.new('wireless mouse')
+# puts carousell.bestSellers
 # carousell.scrap
+# puts carousell.results
 # carousell.average_price

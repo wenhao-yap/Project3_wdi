@@ -5,7 +5,8 @@ require 'carousell'
 require 'lazada'
 
 class QueriesController < ApplicationController
-	before_action :authenticate_user!, :except => [ :index, :create ]
+	before_action :authenticate_user!, :except => [ :index, :create, :about]
+	layout "front"  
 
 	#search page
 	def index
@@ -51,7 +52,7 @@ class QueriesController < ApplicationController
 			parsedLazada = JSON.parse(lazada.cheapest_products, object_class: OpenStruct)
 			addToResults(parsedLazada,"Lazada")
 			lazada_average_price = lazada.average_price
-      lazada_total_items = lazada.total_results
+      		lazada_total_items = lazada.total_results
 			addToSellerDetails_Lazada(lazada_average_price, lazada_total_items)
 
 			carousell = CarousellScraper.new(@query.name)
@@ -63,14 +64,14 @@ class QueriesController < ApplicationController
 
 			@parsedAll = [{platform:'Qoo10',results:parsedQoo10},{platform:'Lazada',results:parsedLazada},{platform:'Carousell',results:parsedCarousell}]
 
-      # Save popular products for lazada platform if it has not been saved before
+      		# Save popular products for lazada platform if it has not been saved before
 			if PopularProduct.where(platform: 'Lazada').length == 0
-				lazada.scrap_popular_products
-	      popular_products = JSON.parse(lazada.popular_results, object_class: OpenStruct)
-	      popular_products.each do |popular_product|
-	        lazada_popular_result = PopularProduct.create(name: popular_product["name"], platform: popular_product["platform"])
-	        lazada_popular_result.save
-	      end
+			lazada.scrap_popular_products
+	      	popular_products = JSON.parse(lazada.popular_results, object_class: OpenStruct)
+	      	popular_products.each do |popular_product|
+	        		lazada_popular_result = PopularProduct.create(name: popular_product["name"], platform: popular_product["platform"])
+	        		lazada_popular_result.save
+	      		end
 			end
 
 			# Save popular products for Qoo10 platform if it has not been saved before

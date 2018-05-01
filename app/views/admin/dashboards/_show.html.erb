@@ -1,0 +1,28 @@
+<% if @query %>
+    <div class="container fluid">
+            <div class="row"> 
+            <% @parsedAll.each do |site| %>
+            <div class="col-md-4">
+            <h2><%= site[:platform] %></h2>
+            <table class="table">
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                <% site[:results].each do |item| %>
+                <tr>
+                    <td><%= item.id %></td>
+                    <td><a href="<%= item["url"] %>"><%= item.name %></td>
+                    <td><%= item.price %></td>
+                </tr>
+            <% end %>
+            </table>
+        </div>
+        <% end %>                
+        </div>
+    </div>
+<% else %>
+   <p>You have not entered a search query</p>   
+<% end %> 
+

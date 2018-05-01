@@ -1,4 +1,6 @@
 class FavouritesController < ApplicationController
+  layout "front" 
+  
   def index
     favourites = Favourite.where(user_id: current_user.id)
 

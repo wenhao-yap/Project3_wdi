@@ -7,29 +7,34 @@
     <div class="modal-body">
         <ul class="errors"></ul>
         <div class="form-group">
-            <%= f.label :name, class:"control-label" %>
+            <label class="bmd-label-floating">Name</label>
             <%= f.text_field :name, class: "form-control" %>
         </div>
         <div class="form-group">
-            <%= f.label :email, class: "control-label" %>
+            <label class="bmd-label-floating">Email</label>
             <%= f.text_field :email, class: "form-control" %>
-        </div>
+        </div> 
         <div class="form-group">
-            <%= f.label :'Admin status', class: "control-label" %>
-            <%= f.check_box :admin %>
-        </div>
-        <div class="form-group">
-            <%= f.label :password, class: "control-label" %>
-            <%= f.password_field :password, autocomplete: "off" %>
+            <label class="bmd-label-floating">Password</label>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
         </div>
         <div>
-            <%= f.label :password_confirmation, class: "control-label" %>
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            <label class="bmd-label-floating">Confirm Password</label>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
         </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                Admin status: 
+                <%= f.check_box :admin, class: "form-check-input" %> 
+                <span class="form-check-sign">
+                    <span class="check"></span>
+                </span>
+            </label>
+        </div> 
     </div>
     <div class="modal-footer">
         <%= f.submit class: "btn btn-primary" %>
-        <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     </div>
     <% end %>
     </div>

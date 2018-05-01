@@ -1,0 +1,345 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+ /*GLOBAL*/
+ .container {
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+
+.color-white {
+  color: white;
+  background-color: transparent;
+}
+
+.view {
+  background: #b2dfdb;
+  background-size: cover;
+}
+
+.vertical-text-center {
+  display: flex;
+  align-items: center;
+}
+
+.vertical-center {
+  min-height: 20%;  
+  min-height: 25vh; 
+
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  outline: none;
+  padding: 8px 10px 8px 10px;
+  background-color: #0f487f;
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.btn, .btn-primary {
+  color: #363636!important;
+  letter-spacing: 1px;
+  font-size: 30px;
+}
+
+.next-btn {
+  color: white!important;
+  background: transparent!important;
+  border: solid 3px white;
+}
+
+.main-wrapper {
+  margin-top: 10%;
+}
+
+.index-wrapper {
+  height: 100%;
+}
+
+.color-transparent {
+  background-color: transparent;
+}
+
+.display-inline {
+  display: inline!important;
+}
+
+label {
+  font-family: DIN alternate;
+  color: white;
+  letter-spacing: 2px;
+
+}
+
+form {
+  display: inherit;
+  justify-content: space-around;
+  align-items: center;
+  background-color: transparent;
+  backface-visibility: hidden;
+}
+
+input {
+  font-family: DIN alternate;
+  color: #ff9c00;
+  border-radius: 5px;
+  letter-spacing: 2px;
+}
+
+h3 {
+  margin: 0;
+}
+
+
+html, body {
+  height: 86%;
+  background: #b2dfdb;
+  background-size: cover;
+
+
+}
+
+main {
+  height: 100%;
+  background: #b2dfdb;
+
+}
+
+img {
+  margin: 0 auto;
+}
+
+/*HEADER*/
+.navbar {
+  padding-top: 5px!important;
+  padding-bottom: 5px!important;
+  background-color: #ff9800;
+}
+
+.nav-item {
+  background-color: transparent!important;
+}
+
+.nav-link {
+  letter-spacing: 2px;
+  border-color: white;
+  padding-left: 15px!important;
+  padding-right: 15px!important;
+  font-size: 20px;
+  font-family: DIN alternate;
+}
+
+.profile-tab {
+  margin-right: 10px;
+}
+
+.favourites-tab {
+  margin-left: 10px;
+}
+
+.nav-item {
+  background-color: gray;
+}
+
+.profile-items {
+  color: #636363;
+  font-size: 18px;
+  font-family: DIN alternate;
+}
+
+.nav-tabs .nav-link {
+  color: white;
+  border: solid 8px white;
+  border-radius: 0px;
+}
+
+.nav-tabs .nav-link.active {
+  border-color: orange;
+  color: orange;
+}
+
+.tab-pane {
+  text-align: left;
+  margin: 0;
+  padding: 20px;
+}
+
+#search-bar {
+  background: transparent;
+}
+
+.top-nav-collapse {
+  background-color: #ef6c00;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #ffca28;
+  }
+}
+
+.main-logo {
+  background: #b2dfdb;
+  text-align: center;
+  border-top: solid 80px #b2dfdb;
+  padding: 30px!important;
+
+}
+
+
+/*FOOTER*/
+
+.page-footer {
+  background: #b2dfdb;
+  display: inline;
+  align-self: center;
+  padding: 0px!important;
+}
+
+#footer-tag {
+  color: lightblue;
+}
+
+.footer-col {
+  text-align: center;
+}
+
+.list-unstyled {
+  list-style: none;
+}
+
+.list-unstyled li {
+  display: inline;
+}
+
+.logos {
+  background: #b2dfdb;
+  text-align: center;
+  padding: 30px!important;
+
+}
+
+
+
+/*Queries*/
+.index-logo {
+  background: #b2dfdb;
+
+  margin-top: 10%;
+}
+
+.queryCard{
+  margin-bottom: 20px
+}
+
+.info{
+  color:white;
+}
+
+.card-deck-wrapper {
+  justify-content: center;
+  text-align: center;
+  border: solid 3px white;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.card-title {
+  font-family: DIN alternate;
+}
+
+
+.next-three {
+  margin: 20px 10px;
+  text-align: center;
+  justify-content: center;
+  color: white!important;
+}
+
+/*User/Admin*/
+
+.sign-up-form {
+  background-color: #f0f0f5;
+  color: #666699;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.md-form {
+  text-align: left;
+}
+
+.md-form label:active {
+  font-size: 0.8rem;
+  transform: translateY(-140%);
+}
+
+.chart {
+  display: inline;
+}
+
+.form-group {
+  margin-top: 10%;
+}
+
+
+.login {
+  color: orange;
+  font-family: DIN alternate;
+  letter-spacing: 3px;
+  font-size: 20px;
+  padding-right: 20px;
+}
+
+
+.login-form {
+  margin: 0 auto;
+
+  text-align: center;
+  width: 80%;
+}
+
+.btn-login {
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
