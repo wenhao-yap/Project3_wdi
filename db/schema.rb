@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2018_04_27_033923) do
     t.string "price"
     t.string "url"
     t.text "platform"
+    t.boolean :favourited
     t.bigint "query_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
