@@ -17,12 +17,10 @@
 
  /*GLOBAL*/
  .container {
-  cursor: pointer;
   text-align: center;
   vertical-align: middle;
   overflow: hidden;
 }
-
 
 .color-white {
   color: white;
@@ -40,8 +38,8 @@
 }
 
 .vertical-center {
-  min-height: 20%;  
-  min-height: 25vh; 
+  min-height: 20%;
+  min-height: 25vh;
 
   display: flex;
   align-items: center;
@@ -324,22 +322,3 @@ img {
   letter-spacing: 1px;
   font-size: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

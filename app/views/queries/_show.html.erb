@@ -37,7 +37,7 @@
                                 <button type="button" class="btn btn-yellow btn-md" href="<%= item["url"] %>"><strong>Buy Now</strong></button>
                                 <% if item.favourited %>
                                 <% else %>
-                                    <%= link_to 'Add to Favourites', result_favourites_path(item.name), method: :post, class: "btn btn-yellow btn-md", id: item.id, :onclick => "toggle_fav_bt(this.id)" %>
+                                    <%= link_to 'Add to Favourites', result_favourites_path(item.name), method: :post, class: "btn btn-yellow btn-md", id: item.name, :onclick => "toggle_fav_bt(this.id)" %>
                                 <% end %>
                             </div>
                         </div>
@@ -50,6 +50,7 @@
     </div>
 </div>
 
+<!-- JavaScript logic to make add to favourite button disappear once clicked... -->
 <script type="text/javascript">
   function toggle_fav_bt(clicked_id) {
     document.getElementById(clicked_id).style.display = "none";

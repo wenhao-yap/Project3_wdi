@@ -42,6 +42,10 @@ class FavouritesController < ApplicationController
   def destroy
     favourite_id = Favourite.find_by(result_id: params[:result_id]).id
     puts "Id to be deleted => #{favourite_id}"
+
+    item = Result.find(params[:result_id])
+    item.update(favourited: false)
+
     Favourite.destroy(favourite_id)
     redirect_to result_favourites_path
   end
