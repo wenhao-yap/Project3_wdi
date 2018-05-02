@@ -6,6 +6,8 @@ class Admin::DashboardsController < ApplicationController
 
   	# Gather data from database to be displayed on dashboard
   	def index
+		@qoo10_popular_products = PopularProduct.where(platform: 'Qoo10')
+		@lazada_popular_products = PopularProduct.where(platform: 'Lazada')
   	end
 
   	def new
@@ -29,7 +31,7 @@ class Admin::DashboardsController < ApplicationController
 			@query.save!
 			scrap = MasterScrapper.new(@query)
 			@parsedAll = scrap.generate
-		end 	
+		end 
   	end
 
   	private

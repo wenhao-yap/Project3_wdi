@@ -1,6 +1,7 @@
 <% if @query %>
     <div class="container fluid">
-            <div class="row"> 
+        <h1 style="color: teal;">Query Results</h1>
+        <div class="row"> 
             <% @parsedAll.each do |site| %>
             <div class="col-md-4">
             <h2><%= site[:platform] %></h2>

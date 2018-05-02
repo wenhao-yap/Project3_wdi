@@ -29,8 +29,39 @@
                 <% end %>              
             </div>
         </nav>
-        <div class="content">
-        	<div id="results"></div>
+        <div class="content">           
+             <div class="container fluid">
+                <h1 style="color:teal">BestSellers</h1>
+                <div class="card" style="margin-bottom: -20px; padding: 10px;">
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;">
+                            <div class="list-group" id="myList" role="tablist">
+                                <a class="list-group-item list-group-item-action active" id="qoo10-list">Qoo10</a>
+                                <a class="list-group-item list-group-item-action" id="lazada-list">Lazada</a>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="qoo10" role="tabpanel">
+                                    <ol>
+                                    <% @qoo10_popular_products.each do |item| %>
+                                            <li><%= item.name %></li>
+                                    <% end %>
+                                    </ol>
+                                </div>
+                                <div class="tab-pane" id="lazada" role="tabpanel">
+                                    <ol>
+                                    <% @lazada_popular_products.each do |item| %>
+                                            <li><%= item.name %></li>
+                                    <% end %>
+                                    </ol>
+                                </div>
+                            </div>                                
+                        </div>
+                    </div>
+                </div>
+            </div>       
+        	<div id="results" style="margin-top: 50px"></div>
 		</div>
 	</div>
 </div>
@@ -39,4 +70,18 @@
   $(".navbar-form").submit(function( ) {
     $('#results').html("loading results. Please wait patiently...")
   });
+
+$('#qoo10-list')[0].addEventListener("click",function(){
+    $('#lazada')[0].style.display = "none";
+    $('#lazada-list')[0].classList.remove("active");
+    $('#qoo10-list')[0].classList.add("active");
+    $('#qoo10')[0].style.display = "block";
+  })
+
+  $('#lazada-list')[0].addEventListener("click",function(){
+    $('#qoo10')[0].style.display = "none";
+    $('#qoo10-list')[0].classList.remove("active");
+    $('#lazada-list')[0].classList.add("active");
+    $('#lazada')[0].style.display = "block";
+  })
 </script>
