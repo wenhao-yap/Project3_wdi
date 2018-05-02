@@ -1,55 +1,43 @@
-<div class="main-wrapper">
-    <div class="container d-flex justify-content-around">
-        <div class="card-deck-wrapper view d-flex flex-wrap">
-            <% @parsedAll.each do |site| %>
-            <div class="platform-title">
-                <br>
-                <% if site[:platform] == "Qoo10" %>
-                    <%= image_tag 'Qoo10.png', height: '80', width: '220' %>
-                <% elsif site[:platform] == "Lazada" %>
-                    <%= image_tag 'lazada.png', height: '100', width: '250' %>
-                <% elsif site[:platform] == "Carousell" %>
-                    <%= image_tag 'carousell.png', height: '80', width: '400' %>
-                <% end %>
-                <br><br>
-            </div>
-            <div class="row">
-                <% site[:results].each do |item| %>
-                    <!-- Grid column -->
-                    <div class="col-md-4 mb-r d-flex align-items-stretch queryCard">
-                        <!--Card-->
-                        <div class="card">
-                            <!--Card image-->
-                            <div class="view overlay">
-                                <div style="width:200px; height:200px; margin:0 auto">
-                                    <img class="card-img-top" src= <%= item["img"] %>
-                                    <a href="#">
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!--Card content-->
-                            <div class="card-body">
-                                <!--Title-->
-                                <h4 class="card-title"><%= item.name %></h4>
-                                <!--Text-->
-                                <p class="card-text"><strong>Price:</strong><%= item.price %></p>
-
-                                <button type="button" class="btn btn-yellow btn-md" onClick="window.open('<%= item["url"] %>');"><strong>Buy Now</strong></button>
-                                <% if item.favourited %>
-                                <% else %>
-                                    <%= link_to 'Add to Favourites', result_favourites_path(item.name), method: :post, class: "btn btn-yellow btn-md", id: item.name, :onclick => "toggle_fav_bt(this.id)" %>
-                                <% end %>
-                            </div>
-                        </div>
-                        <!--/.Card-->
-                    </div>
-                <% end %>
-            </div>
-            <% end %>
-        </div>
+<div class="container">
+    <% @parsedAll.each do |site| %>
+    <div class="platform-title results_platform">
+        <br>
+        <% if site[:platform] == "Qoo10" %>
+            <%= image_tag 'Qoo10.png', height: '80', width: '220', class:"results_title" %>
+        <% elsif site[:platform] == "Lazada" %>
+            <%= image_tag 'lazada.png', height: '100', width: '250', class:"results_title" %>
+        <% elsif site[:platform] == "Carousell" %>
+            <%= image_tag 'carousell.png', height: '80', width: '400', class:"results_title" %>
+        <% end %>
+        <br><br>
     </div>
+    <div class="row mb-3">
+        <% site[:results].each do |item| %>
+        <div class="col-md-6">
+            <div class="d-flex flex-row border rounded results_card">
+                <div class="p-0 w-25">
+                    <img class="object-fit" src= <%= item["img"] %> width="150" height="150"/>
+                </div>
+                <div class="pl-3 pt-2 pr-2 pb-2 w-75 border-left results_cardBody">
+                    <h4 class="results_ellipsis" ><%= item.name %></h4>
+                    <h5 class="text-info results_price"><%= item.price %></h5>
+                    <div class = "results_buttons">
+                        <p class="text-right m-0">
+                            <% if item.favourited %>
+                            <% else %>
+                                <%= link_to 'Favourite', result_favourites_path(item.name), method: :post, class: "btn btn-dark", id: item.name, :onclick => "toggle_fav_bt(this.id)" %>
+                            <% end %>
+                            <a href=<%= item["url"] %> target=”_blank” class="btn btn-dark"><i class="fas fa-shopping-cart"></i> View More</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <% end %>
 </div>
+
 
 <!-- JavaScript logic to make add to favourite button disappear once clicked... -->
 <script type="text/javascript">
