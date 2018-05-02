@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+<!-- <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -50,6 +50,38 @@
 			<% end %>		
 		</ul>
 	</div>
-</nav>
-<!--Main Navigation-->
+</nav> -->
+
+<nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
+	<a class="navbar-brand" href="/"><%= image_tag "logo.png",:size => "110x60" %></a>
+	<a id="navbar_text" href="/">PRICE COMPARE</a>	
+	<%= form_with scope: :query, url: queries_path,class:"form-inline" do |form| %>
+		<%= text_field_tag(:name,"",:class => "form-control input-lg", placeholder: "I'm looking for ...",:id => "navbar_input") %>
+		<%= submit_tag("SEARCH",:id => "navbar_submit") %>
+	<% end %>
+	<ul class="navbar-nav ml-auto">
+		<li class="nav-item"><a class="nav-link navbar_links" href="/">HOME <span class="sr-only">(current)</span></a></li>
+		<li class="nav-item nav-link navbar_links">|</li>
+		<li class="nav-item"><a class="nav-link navbar_links" href="/about">ABOUT</a></li>
+		<li class="nav-item nav-link navbar_links">|</li>
+		<% if user_signed_in? %>
+			<li class="nav-item"><%= link_to 'FAVOURITES', favourites_path,:class=>"nav-link navbar_links" %></li>
+			<li class="nav-item nav-link navbar_links">|</li>
+			<% if current_user.admin? %>	
+				<li class="nav-item"><%= link_to 'ADMIN', admin_root_path,:class=>"nav-link navbar_links" %></li>
+			<% end %>
+			<li class="nav-item nav-link navbar_links">|</li>
+			<li class="nav-item"><%= link_to 'SIGN OUT', destroy_user_session_path,:class=>"nav-link navbar_links" %></li> 
+		<% else %>	
+			<li class="nav-item"><%= link_to 'LOGIN', user_session_path,:class=>"nav-link navbar_links" %></li>
+			<li class="nav-item nav-link navbar_links">|</li>
+			<li class="nav-item"><%= link_to 'SIGN UP', new_user_registration_path,:class=>"nav-link navbar_links" %></li>
+		<% end %>		
+	</ul>
+	<button id="navbar_loader"></button>
+	<div class="fixed-top" id="navbar_line"></div>
+
+	
+</nav> 
+
 

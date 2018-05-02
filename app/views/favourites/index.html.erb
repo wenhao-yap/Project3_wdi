@@ -159,8 +159,10 @@
 }
 
   $( "form" ).submit(function( ) {
-    $('#results').html("loading results. Please wait patiently...")
-    $(".index-wrapper")[0].style.display = "none"
+    $("#navbar_loader").addClass( "onclic");
+    $("#navbar_submit")[0].style.display = "none";
+    $("#navbar_loader")[0].style.display = "block";
+    $(".index-wrapper")[0].style.display = "none";
   });
 
 </script>
