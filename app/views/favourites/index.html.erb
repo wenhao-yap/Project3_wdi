@@ -1,168 +1,50 @@
-<div class="index-wrapper">
-<br><br><br><br>
-<div class="container view">
-    <div class="row">
-        <div class="col-lg-12">
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs nav-justified">
-                <li class="nav-item">
-                    <a class="nav-link profile-tab" data-toggle="tab" href="#panel1" role="tab">PROFILE</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link favourites-tab" data-toggle="tab" href="#panel2" role="tab">FAVOURITES</a>
-                </li>
-            </ul>
-            <br>
-
-            <!-- Tab panels -->
-            <div class="tab-content card">
-                <!--Panel 1-->
-                <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
-                    <h4 class="profile-items">
-                        <%= current_user.name %> <br>
-                        <%= current_user.email %>
-                        <br><br>
-                        <%= link_to 'EDIT PROFILE',edit_user_registration_path, class:"btn btn-yellow btn-md" %>
-                    </h4>
-<!--                     <div class="row">
-                        <div class="col-lg-10 offset-1 chart">
-                            <canvas id="sellerChart"></canvas>
-                        </div>
-                    </div> -->
-                </div>
-
-
-                <br>
-                <!--/.Panel 1-->
-                <!--Panel 2-->
-                <div class="tab-pane fade" id="panel2" role="tabpanel">
-                    <br>
-                    <div class="favourites-wrapper">
-                        <div class="container test d-flex justify-content-around">
-                            <div class="card-deck-wrapper">
-                                <div class="card-deck d-flex justify-content-around">
-                                  <div class="row">
-                                      <% @favourites.each do |favourite| %>
-                                          <div class="col-md-4 mb-r d-flex align-items-stretch queryCard">
-                                              <!--Card-->
-                                              <div class="card">
-                                                  <!--Card image-->
-                                                  <div class="view overlay">
-                                                      <div style="width:200px; height:200px; margin:0 auto">
-                                                          <img class="card-img-top" src= <%= favourite[:img] %>>
-                                                          <a href="#">
-                                                              <div class="mask rgba-white-slight"></div>
-                                                          </a>
-                                                      </div>
-                                                  </div>
-                                                  <!--Card content-->
-                                                  <div class="card-body">
-                                                      <!--Title-->
-                                                      <h4 class="card-title"><%= favourite[:name] %></h4>
-                                                      <!--Text-->
-                                                      <p class="card-text"><strong>Price:</strong><%= favourite[:price] %></p>
-                                                      <p class="card-text"><strong>Platform:</strong><%= favourite[:platform] %></p>
-                                                      <% if favourite[:url] == nil %>
-                                                        <button type="button" class="btn btn-yellow btn-md" disabled><strong>Buy Now</strong></button>
-                                                      <% else %>
-                                                        <button type="button" class="btn btn-yellow btn-md" onClick="window.open('<%= favourite[:url] %>');"><strong>Buy Now</strong></button>
-                                                      <% end %>
-                                                      <%= link_to 'Unfavourite', result_favourite_path(favourite), method: :delete, class: "btn btn-yellow btn-md" %></td>
-                                                  </div>
-                                              </div>
-                                              <!--/.Card-->
-                                          </div>
-                                      <% end %>
-                                  </div>
-                              </div>
-
-                          </div>
-                        </div>
-                      </div>
-                      <!--/.Panel 2-->
-                  </div>
-              </div>
+<div class="container index-wrapper">
+  <h1><%= current_user.name %>'s favourites</h1>
+  <div class="row">
+    <% @favourites.each do |favourite| %>
+    <!-- Card -->
+    <div class="col-md-3 fav_card-container">
+      <div class="card-flip">
+        <!-- Card Front -->
+        <div class="card front card-inverse fav_card">
+          <img class="card-img object-fit" src= <%= favourite[:img] %> alt="Card image" width="250" height="250">
+          <div class="card-img-overlay">
+            <h4 class="card-title results_ellipsis fav_text"><%= favourite[:name] %></h4>
           </div>
+        </div>
+        <!-- End Card Front -->
+
+        <!-- Card Back -->
+        <div class="card back fav_card ">
+          <div class="card-block">
+            <div class="fav_backCardText">
+              <h5 class="card-title"><%= favourite[:name] %></h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                <strong>Price:</strong><%= favourite[:price] %>
+                <p><strong>Platform:</strong><%= favourite[:platform] %></p>
+              </h6>
+            </div>
+            <div class="fav_buttons">
+              <a href= <%= favourite[:url] %> class="btn btn-outline-dark">Buy Now</a>
+              <%= link_to 'Unfavourite', result_favourite_path(favourite), method: :delete, class: "btn btn-outline-dark" %>
+            </div>
+          </div>
+        </div>
+        <!-- End Card Back -->
       </div>
+    </div>
+    <!-- End Card -->
+    <% end %>
   </div>
 </div>
-
 
 <div id="results"></div>
 
 <script>
-  window.onload = function(){
-    let sellerChart = document.getElementById('sellerChart').getContext('2d');
-
-    // Global Options
-    Chart.defaults.global.defaultFontFamily = 'Lato';
-    Chart.defaults.global.defaultFontSize = 18;
-    Chart.defaults.global.defaultFontColor = '#777';
-    Chart.defaults.global.animation.duration = 1500;
-
-    let myChartOne = new Chart(sellerChart, {
-            type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
-            data:{
-              labels:['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'Novermber', 'December'],
-              datasets:[{
-                label:'Searches',
-                data:[
-                61754,
-                58045,
-                65072,
-                53423,
-                55723,
-                65623,
-                74382,
-                53246,
-                45372,
-                63619,
-                43719,
-                53829
-                ],
-                //backgroundColor:'green',
-                backgroundColor:[
-                'rgba(255, 148, 62, 0.5)'
-                ],
-                borderWidth:1,
-                borderColor:'#777',
-                hoverBorderWidth:3,
-                hoverBorderColor:'#000'
-            }]
-        },
-        options:{
-          title:{
-            display:true,
-            text:'Your searches',
-            fontSize:25
-        },
-        legend:{
-            display:false,
-            position:'right',
-            labels:{
-              fontColor:'#000'
-          }
-      },
-      layout:{
-        padding:{
-          left:50,
-          right:0,
-          bottom:0,
-          top:0
-      }
-      },
-      tooltips:{
-        enabled:true
-      }
-    }
-  });
-}
-
   $( "form" ).submit(function( ) {
     $("#navbar_loader").addClass( "onclic");
     $("#navbar_submit")[0].style.display = "none";
     $("#navbar_loader")[0].style.display = "block";
     $(".index-wrapper")[0].style.display = "none";
   });
-
 </script>

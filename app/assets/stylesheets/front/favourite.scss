@@ -1,0 +1,55 @@
+.fav_card {
+  margin: 10px 10px;
+  width: 250px;
+  height: 250px;
+}
+
+/* Flip Cards CSS */
+.fav_card-container {
+  display: grid;
+  perspective: 700px;
+}
+
+.card-flip {
+  display: grid;
+  grid-template: 1fr / 1fr;
+  grid-template-areas: "frontAndBack";
+  transform-style: preserve-3d;
+  transition: all 0.7s ease;
+}
+
+.card-flip div {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.front {
+  grid-area: frontAndBack;
+}
+
+.back {
+  grid-area: frontAndBack;
+  transform: rotateY(-180deg);
+  padding:15px;
+}
+
+.fav_card-container:hover .card-flip {
+  transform: rotateY(180deg);
+}
+
+.fav_text {
+  background: #85c1ba;
+  font-family: Roboto, sans serif;
+  font-size:18px;
+  margin: 150px 0px 0px -20px;
+  padding: 10px;
+  width: 250px;
+  opacity: 0.8;
+}
+
+.fav_backCardText{
+  height:180px;
+}
+.fav_buttons{
+  height:70px;
+}
