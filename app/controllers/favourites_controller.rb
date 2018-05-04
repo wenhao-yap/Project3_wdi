@@ -1,4 +1,5 @@
 class FavouritesController < ApplicationController
+  before_action :ensure_user!
   layout "front"
 
   def index
@@ -54,4 +55,11 @@ class FavouritesController < ApplicationController
 	def query_params
 		params.permit(:name)
 	end
+
+  def ensure_user!
+    unless current_user
+      flash[:alert] = "You don't have sufficient credentials to access this page."
+      redirect_to root_path
+    end
+  end
 end

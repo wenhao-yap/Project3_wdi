@@ -1,0 +1,7 @@
+$('#results').empty()
+$('#results').append("<%= escape_javascript (render partial: 'queries/show') %>");
+$("#navbar_loader")[0].style.display = "none";
+$("#navbar_submit")[0].style.display = "block";
+$("#navbar_loader").removeClass( "onclic");
+
+

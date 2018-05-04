@@ -45,7 +45,7 @@ class CarousellScraper
 
 	def results
 		items = @searchData.css('.e-_a > div')
-		output = items[0..8].each_with_index.map { |item, i|
+		output = items[0..9].each_with_index.map { |item, i|
 			url = 'https://sg.carousell.com'
 			{
 				id: i+1,

@@ -26,7 +26,7 @@
             </div>
             <div class="fav_buttons">
               <a href= <%= favourite[:url] %> class="btn btn-outline-dark">Buy Now</a>
-              <%= link_to 'Unfavourite', result_favourite_path(favourite), method: :delete, class: "btn btn-outline-dark" %>
+              <%= link_to 'Unfavourite', result_favourite_path(favourite), :remote => true, method: :delete, class: "btn btn-outline-dark" %>
             </div>
           </div>
         </div>
