@@ -1,8 +1,10 @@
+<% if user_signed_in? %>
+<% else %>
 <div class="account_container">
 	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'account_form', id:'account_signUp'}) do |f| %>
-		<div style="display:none"><%= devise_error_messages! %></div>
+		<%= devise_error_messages! %>  	
 		<h3 class="account_header">Create Your Account</h3>
-		<p class="account_text">Just enter your email address</br>and your password for join.</p>
+		<p class="account_text">Connect with us today.</p>
 		<%= f.email_field :email, autofocus: true, class:"w100 account_input", placeholder: "Your Email",id:"account_signUp_email" %>
 		<%= f.text_field :name, autofocus: true,class:"account_input", placeholder: "Your Name" %>
 		<%= f.password_field :password, autocomplete: "off", class:"account_input", placeholder: "Insert Password",id:"account_signUp_pass" %>
@@ -18,3 +20,4 @@
 		<%= f.submit "Log in", class:"form-btn dx account_button" %>
 	<% end %>		
 </div>
+<% end %>

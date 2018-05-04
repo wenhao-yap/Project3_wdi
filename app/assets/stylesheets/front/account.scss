@@ -2,7 +2,7 @@
 	position:absolute;
 	width: auto;
 	height:auto;
-	top: calc(50% - 240px);
+	top: calc(50% - 150px);
 	left: calc(50% - 160px);
 }
 
@@ -11,7 +11,7 @@
 	text-align: center;
 	background: #fff;
 	width: 310px;
-	height: 470px;
+	height: 450px;
 	border-radius: 5px;
 	padding: 30px 20px 0 20px;
 	box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.25);
@@ -31,7 +31,7 @@
 	font-family: Shadows Into Light, cursive;
 	font-size: 35px;
 	text-transform: uppercase;
-	color: #87613d;
+	color: #39332d;
 	margin-bottom: 15px;
 }
 
@@ -75,13 +75,13 @@
 .account_button.form-btn.sx {
 	left: 0;
 	border-radius: 0 0 0 5px;
-	background-color: rgba(255, 125, 0, 0.35);
+	background-color: rgb(47, 42, 38);
 	color: #fff;
 	transition:all 0.3s linear;
 }
 
 .account_button.form-btn.sx:hover {
-	background-color:rgba(255, 125, 0, 0.65);
+	background-color:#283847;
 	color: #fff;
 }
 
@@ -104,18 +104,14 @@
 .account_input {
 	border: none;
 	border-bottom: 1px solid #ffc185;
-	width: 85%;
-	font-family: Roboto;
+	width: 75%;
+	font-family: Shadows Into Light, cursive;
 	color: #ff7d00;
 	text-align: center;
-	font-size: 21px;
+	font-size: 22px;
 	font-weight:100;
-	margin-bottom:25px;
-}
-
-#account_signIn .account_input,
-#account_signUp .w100 {
-	width: 100%;
+	letter-spacing:1px;
+	margin-bottom:18px;
 }
 
 #account_signIn{
@@ -130,25 +126,25 @@
 
 .active-dx{
 	animation-name: foregrounding-dx;
-	animation-duration: 0.9s;
+	animation-duration: 0.6s;
 	animation-fill-mode: forwards;
 }
 
 .active-sx{
 	animation-name: foregrounding-sx;
-	animation-duration: 0.9s;
+	animation-duration: 0.6s;
 	animation-fill-mode: forwards;
 }
 
 .inactive-dx{
 	animation-name: overshadowing-dx;
-	animation-duration: 0.9s;
+	animation-duration: 0.6s;
 	animation-fill-mode: forwards;
 }
 
 .inactive-sx{
 	animation-name: overshadowing-sx;
-	animation-duration: 0.9s;
+	animation-duration: 0.6s;
 	animation-fill-mode: forwards;
 }
 
