@@ -5,6 +5,7 @@
     <%= image_tag 'lazada.png', height: '30', width: '80' %>
     <%= image_tag 'carousell.png', height: '30', width: '150' %>
   </div>
+  <%= render "queries/account" %>
 </div>
 
 <div id="results"></div>
@@ -15,6 +16,20 @@
     $("#navbar_submit")[0].style.display = "none";
     $("#navbar_loader")[0].style.display = "block";
     $(".index-wrapper")[0].style.display = "none";
+  });
+
+  $(".log-in").click(function(){
+    $("#account_signIn").addClass("active-dx");
+    $("#account_signUp").addClass("inactive-sx");
+    $("#account_signUp").removeClass("active-sx");
+    $("#account_signIn").removeClass("inactive-dx");
+  });
+
+  $(".account_back").click(function(){
+    $("#account_signUp").addClass("active-sx");
+    $("#account_signIn").addClass("inactive-dx");
+    $("#account_signIn").removeClass("active-dx");
+    $("#account_signUp").removeClass("inactive-sx");
   });
 </script>
 

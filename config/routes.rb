@@ -24,8 +24,6 @@ Rails.application.routes.draw do
     root 'dashboards#index'
   end
 
-  get 'about' => "queries#about"
-
 	root 'queries#index'
 
    #404 page. comment this to see the routing errors
