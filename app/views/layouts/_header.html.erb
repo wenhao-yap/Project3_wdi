@@ -1,55 +1,20 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item">
-				<a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item nav-link">
-				|
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/about">ABOUT</a>
-			</li>
-		</ul>
-
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item color-transparent">
-				<div class="nav-link display-inline" id="search-bar">
-					<%= form_with scope: :query, url: queries_path do |form| %>
-					<%= label_tag(:name, "PRODUCT:") %>
-					<%= text_field_tag(:name) %>
-					<%= submit_tag("SEARCH") %>
-					<% end %>
-				</div>
-			</li>
-		</ul>
-
-		<ul class="navbar-nav nav-flex-icons">
-			<% if user_signed_in? %>
-			<li class="nav-item">
-				<%= link_to 'FAVOURITES', favourites_path,:class=>"nav-link" %>
-			</li>
-			<li class="nav-item">
-				<%= link_to 'SIGN OUT', destroy_user_session_path,:class=>"nav-link" %>
-			</li>
-				<% if current_user.admin? %>	
-			<li class="nav-item">
-				<%= link_to 'ADMIN', admin_root_path,:class=>"nav-link" %>
-			</li>
-				<% end %> 
-			<% else %>	
-			<li class="nav-item">
-				<%= link_to 'LOGIN', user_session_path,:class=>"nav-link" %>
-			</li>
-			<li class="nav-item">
-				<%= link_to 'SIGN UP', new_user_registration_path,:class=>"nav-link" %>
-			</li>
-			<% end %>		
-		</ul>
-	</div>
-</nav>
-<!--Main Navigation-->
-
+<nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
+	<a class="navbar-brand" href="/"><%= image_tag "logo.png",:size => "110x60" %></a>
+	<a id="navbar_text" href="/">PRICE COMPARE</a>	
+	<%= form_with scope: :query, url: queries_path,class:"form-inline" do |form| %>
+		<%= text_field_tag(:name,"",:class => "form-control input-lg", placeholder: "I'm looking for ...",:id => "navbar_input") %>
+		<%= submit_tag("SEARCH",:id => "navbar_submit") %>
+	<% end %>
+	<button id="navbar_loader"></button>
+	<ul class="navbar-nav ml-auto">
+		<% if user_signed_in? %>
+			<li class="nav-item"><a class="nav-link navbar_links" href="/">HOME <span class="sr-only">(current)</span></a></li>
+			<li class="nav-item"><%= link_to 'FAVOURITES', favourites_path,:class=>"nav-link navbar_links" %></li>
+			<% if current_user.admin? %>	
+				<li class="nav-item"><%= link_to 'ADMIN', admin_root_path,:class=>"nav-link navbar_links" %></li>
+			<% end %>
+			<li class="nav-item"><%= link_to 'SIGN OUT', destroy_user_session_path,:class=>"nav-link navbar_links" %></li> 
+		<% end %>		
+	</ul>	
+	<div class="fixed-top" id="navbar_line"></div>	
+</nav> 

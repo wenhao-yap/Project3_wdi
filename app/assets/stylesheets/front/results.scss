@@ -1,3 +1,45 @@
-// Place all the styles related to the results controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.results_platform {
+	text-align: center;
+}
+
+.results_title {
+	background: #79746d;
+    opacity: 0.7;
+    border-radius: 8px;
+}
+
+.results_card {
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.results_cardBody {
+	background: white;
+	height:  150px;
+}
+
+.results_ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.results_name{
+  color: #4e6d6c;
+}
+
+.results_price {
+	height:30px;
+}
+
+.results_buttons {
+	margin-top: 30px;
+}
+
+.favourite_hide {
+  display:none;
+}
+
+.favourite_show {
+  display:none;
+}

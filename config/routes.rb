@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   	devise_scope :user do
     	get 'users/sign_out' => "devise/sessions#destroy"
@@ -24,10 +24,8 @@ Rails.application.routes.draw do
     root 'dashboards#index'
   end
 
-  get 'about' => "queries#about"
-
 	root 'queries#index'
 
    #404 page. comment this to see the routing errors
-   # get "*any", via: :all, to: "errors#not_found"
+   get "*any", via: :all, to: "errors#not_found"
 end

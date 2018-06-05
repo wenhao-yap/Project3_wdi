@@ -1,7 +1,7 @@
 require 'masterScrapper'
 
 class QueriesController < ApplicationController
-	before_action :authenticate_user!, :except => [ :index, :create, :about]
+	before_action :authenticate_user!, :except => [ :index, :create, :account]
 	layout "front"
 
 	#search page

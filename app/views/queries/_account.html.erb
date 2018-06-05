@@ -1,0 +1,23 @@
+<% if user_signed_in? %>
+<% else %>
+<div class="account_container">
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'account_form', id:'account_signUp'}) do |f| %>
+		<%= devise_error_messages! %>  	
+		<h3 class="account_header">Create Your Account</h3>
+		<p class="account_text">Connect with us today.</p>
+		<%= f.email_field :email, autofocus: true, class:"w100 account_input", placeholder: "Your Email",id:"account_signUp_email" %>
+		<%= f.text_field :name, autofocus: true,class:"account_input", placeholder: "Your Name" %>
+		<%= f.password_field :password, autocomplete: "off", class:"account_input", placeholder: "Insert Password",id:"account_signUp_pass" %>
+		<%= f.password_field :password_confirmation, autocomplete: "off", class:"account_input", placeholder: "Verify Password" %>
+		<button class="form-btn sx log-in account_button" type="button">Log In</button>
+		<%= f.submit "Register", class:"form-btn dx account_button" %>
+	<% end %>
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'account_form', id:'account_signIn'}) do |f| %>
+		<h3 class="account_header">Welcome</br>Back !</h3>
+		<%= f.email_field :email, autofocus: true, class:"w100 account_input", placeholder:"Your Email",id:"account_signIn_email"%>
+		<%= f.password_field :password, autocomplete: "off", class:"account_input", placeholder:"Your Password",id:"account_signIn_pass" %>			
+		<button class="form-btn sx account_back account_button" type="button">Back</button>
+		<%= f.submit "Log in", class:"form-btn dx account_button" %>
+	<% end %>		
+</div>
+<% end %>

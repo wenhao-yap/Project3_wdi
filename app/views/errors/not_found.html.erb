@@ -1,5 +1,18 @@
-<h1>404 We're sorry!</h1>
+<div class="index-wrapper errorPage">
+	<div class="container">
+		<h1 class="display-4">404. We're sorry!</h1>
+		<p>An error has occured. This may be due to a technical fault or the page does not exist.</p>
+		<a href="/" class="btn btn-dark">Return Home</a>
+	</div>
+</div>
 
-The page you were looking for could not be found.
+<div id="results"></div>
 
-<%= link_to 'Home', queries_path %>
+<script type="text/javascript">
+  $( "form" ).submit(function( ) {
+    $("#navbar_loader").addClass( "onclic");
+    $("#navbar_submit")[0].style.display = "none";
+    $("#navbar_loader")[0].style.display = "block";
+    $(".index-wrapper")[0].style.display = "none";
+  });
+</script>
